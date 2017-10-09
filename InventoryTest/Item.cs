@@ -38,8 +38,6 @@ namespace InventoryTest
         [MaxLength(255)]
         public string ServiceMan { get; set; }
 
-        [MaxLength(255)]
-        public string LPN { get; set; }
         [MaxLength(300)]
         public String Note { get; set; }
         public bool? Pending { get; set; }

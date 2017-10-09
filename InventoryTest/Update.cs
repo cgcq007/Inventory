@@ -36,7 +36,6 @@ namespace InventoryTest
                 orderId.Text = item.OrderId;
                 UPC.Text = item.UPC;
                 SN.Text = item.SN;
-                LPN.Text = item.LPN;
                 originalTrackingNum.Text = item.OriginalTrackingNum;
                 returnCode.Text = item.ReturnCode;
                 location.Text = item.Location;
@@ -59,7 +58,7 @@ namespace InventoryTest
                         if (utype == "serviceMan")
                         {
                             ite = new Item() { ItemTitle = itemTitile.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(),
-                                LPN = LPN.Text.Trim(), OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, ServiceMan = uname, Condition = condition.Text, Note = Note.Text.Trim() };
+                                  OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, ServiceMan = uname, Condition = condition.Text, Note = Note.Text.Trim() };
                             ctx.Items.Attach(ite);
                             ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
                             ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;
@@ -67,7 +66,7 @@ namespace InventoryTest
                         else
                         {
                             ite = new Item() { ItemTitle = itemTitile.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(),
-                                LPN = LPN.Text.Trim(), OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, Condition = condition.Text, Note = Note.Text.Trim() };
+                                  OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, Condition = condition.Text, Note = Note.Text.Trim() };
                             ctx.Items.Attach(ite);
                             ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
                             ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;

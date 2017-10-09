@@ -33,5 +33,28 @@ namespace InventoryTest.Properties {
                 return ((string)(this["InventoryManagementSystemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tcp:qche.database.windows.net,1433;Initial Catalog=InventoryManagemen" +
+            "t;Persist Security Info=False;Integrated Security=False;User ID=qche;Password=Cq" +
+            "_19920208;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")]
+        public string InventoryManagementConnectionString {
+            get {
+                return ((string)(this["InventoryManagementConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=qche.database.windows.net;Initial Catalog=InventoryManagement;User ID" +
+            "=qche;Password=Cq_19920208")]
+        public string InventoryManagementConnectionString1 {
+            get {
+                return ((string)(this["InventoryManagementConnectionString1"]));
+            }
+        }
     }
 }

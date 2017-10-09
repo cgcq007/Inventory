@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Modify = new System.Windows.Forms.Button();
@@ -44,11 +43,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // skinEngine1
-            // 
-            this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = null;
+
             // 
             // dataGridView1
             // 
@@ -207,7 +202,6 @@
 
         #endregion
 
-        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

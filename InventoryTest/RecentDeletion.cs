@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace InventoryTest
 {
     public partial class RecentDeletion : Form
     {
+        
         public RecentDeletion()
         {
             InitializeComponent();
@@ -20,13 +22,16 @@ namespace InventoryTest
 
         private void RecentDeletion_Load(object sender, EventArgs e)
         {
-            using (var ctx = new ItemContext())
-            {
 
-                var itemsBak = ctx.ItemsBak.OrderByDescending(order => order.DateOfRcv).ToList();
-                dataGridView1.DataSource = ToDataSet(itemsBak);
-            }
-            setFridViewProperty();
+            // TODO: This line of code loads data into the 'inventoryManagementDataSet.ItemBaks' table. You can move, or remove it, as needed.
+            this.itemBaksTableAdapter1.Fill(this.inventoryManagementDataSet.ItemBaks);
+            //using (var ctx = new ItemContext())
+            //{
+
+            //    var itemsBak = ctx.ItemBaks.OrderByDescending(order => order.DateOfRcv).ToList();
+            //    dataGridView1.DataSource = ToDataSet(itemsBak);
+            //}
+            //setFridViewProperty();
         }
         public DataTable ToDataSet<T>(List<T> list)
         {
@@ -41,36 +46,79 @@ namespace InventoryTest
             }
             return t;
         }
-        private void setFridViewProperty()
-        {
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.ClearSelection();
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridView1.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AllowUserToResizeColumns = true;
-            dataGridView1.AllowUserToAddRows = false;
-        }
+        //private void setFridViewProperty()
+        //{
+        //    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        //    dataGridView1.ReadOnly = true;
+        //    dataGridView1.ClearSelection();
+        //    dataGridView1.RowHeadersVisible = false;
+        //    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+        //    dataGridView1.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+        //    dataGridView1.AllowUserToResizeRows = false;
+        //    dataGridView1.AllowUserToResizeColumns = true;
+        //    dataGridView1.AllowUserToAddRows = false;
+        //}
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            var time1 = Convert.ToDateTime(dateTimePicker1.Text);
+            DateTime time1 = Convert.ToDateTime(dateTimePicker1.Text);
             if (MessageBox.Show("The Log before " + time1.Date + " will be deleted", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 using (ItemContext ctx = new ItemContext())
                 {
 
-                    var list = ctx.ItemsBak.Where(a => a.DateOfRcv.CompareTo(time1) < 0);
+                    var list = ctx.ItemBaks.Where(a => a.DateOfOut.CompareTo(time1) < 0);
                     foreach (var ite in list)
                     {
-                        ctx.ItemsBak.Remove(ite);
+                        ctx.ItemBaks.Remove(ite);
                     }
                     ctx.SaveChanges();
                     MessageBox.Show("Clearance Successfully!");
                 }
             RecentDeletion_Load(this, e);
+        }
+
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            //OpenFileDialog path = new OpenFileDialog();
+            //path.Title = "Please Choose a Path:";
+            //path.Filter = "Excel Document(*.xls)|*.xls";
+            //path.Multiselect = false;
+
+            FolderBrowserDialog path = new FolderBrowserDialog();
+            path.Description = "Pleas Choose a Path:";
+            string file;
+            DateTime time1 = Convert.ToDateTime(dateTimePicker1.Text);
+
+            if (path.ShowDialog() == DialogResult.OK)
+            {
+                //file = path.SafeFileName;
+                file = path.SelectedPath;
+            }
+            else
+            {
+                return;
+            }
+
+            using (ItemContext ctx = new ItemContext())
+            {
+                try
+                {
+                    var ib = ctx.ItemBaks.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.DateOfOut,
+                        x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition,
+                        x.Listed, x.ReturnCode,x.OutTrackingNumber,x.ItemOutOperator })
+                        .Where(a => a.DateOfOut.CompareTo(time1) < 0).ToList();
+                    DataTable dt = ToDataSet(ib);
+                    ExcelTool et = new ExcelTool(dt, file);
+                    MessageBox.Show(et.writeToExcel());
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

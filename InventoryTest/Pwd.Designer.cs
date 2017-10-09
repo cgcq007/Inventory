@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -38,11 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // skinEngine1
-            // 
-            this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = null;
+
             // 
             // label1
             // 
@@ -152,7 +147,7 @@
 
         #endregion
 
-        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;

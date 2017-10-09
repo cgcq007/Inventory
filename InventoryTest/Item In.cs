@@ -30,7 +30,7 @@ namespace InventoryTest
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (itemTitile.Text.Length != 0 && dateOfRcv.Text.Length != 0 && orderId.Text.Length != 0 &&  SN.Text.Length != 0 && LPN.Text.Length != 0)
+            if (itemTitile.Text.Length != 0 && dateOfRcv.Text.Length != 0 && orderId.Text.Length != 0 &&  SN.Text.Length != 0)
             {
                 if (!(Regex.IsMatch(Regex.Replace(orderId.Text.Trim().ToString(), "-",""), StrRegex(1))))
                 {
@@ -54,7 +54,7 @@ namespace InventoryTest
                     using (var ctx = new ItemContext())
                     {
                         //MessageBox.Show(dateOfRcv.Text.ToString());
-                        Item Ite = new Item() {  ItemTitle = itemTitile.Text.Trim(), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(), LPN = LPN.Text.Trim(), OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text.ToString()), Listed = listed.Text, ItemInOperator = uname, Condition = condition.Text, Note = Note.Text.Trim() };
+                        Item Ite = new Item() {  ItemTitle = itemTitile.Text.Trim(), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(), OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text.ToString()), Listed = listed.Text, ItemInOperator = uname, Condition = condition.Text, Note = Note.Text.Trim(), Pending = false };
                         var WholeRecord = ctx.Items.Select(a => a.SN).Union(ctx.ItemsDisposed.Select(b => b.SN));
                         //MessageBox.Show(WholeRecord.Where(x => x.Equals(SN.Text.Trim())).ToList().ToString());
                         if (WholeRecord.Where(x => x.Equals(SN.Text.Trim())).ToList().Count == 0)
@@ -63,6 +63,15 @@ namespace InventoryTest
                             ctx.SaveChanges();
                             MessageBox.Show("Successfully added!");
                             //MessageBox.Show(WholeRecord.Where(x => x.Equals(SN.Text.Trim())).ToList().ToString());
+                            foreach (Control ctr in this.Controls)
+                            {
+                                if (ctr is TextBox)
+                                {
+                                    ctr.Text = "";
+                                }
+                            }
+                            listed.SelectedIndex = 0;
+                            condition.SelectedIndex = 0;
 
                         }
                         else
