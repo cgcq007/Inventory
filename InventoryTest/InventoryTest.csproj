@@ -95,11 +95,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryManagementDataSet6.xsd</DependentUpon>
     </Compile>
-    <Compile Include="InventoryManagementSystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventoryManagementSystemDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ItemBak.cs" />
     <Compile Include="ItemDisposed.cs" />
     <Compile Include="Item In.cs">
@@ -206,17 +201,6 @@
     </None>
     <None Include="InventoryManagementDataSet6.xss">
       <DependentUpon>InventoryManagementDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="InventoryManagementSystemDataSet.xsc">
-      <DependentUpon>InventoryManagementSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InventoryManagementSystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventoryManagementSystemDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventoryManagementSystemDataSet.xss">
-      <DependentUpon>InventoryManagementSystemDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

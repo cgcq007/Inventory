@@ -22,9 +22,10 @@ namespace InventoryTest
 
         private void RecentDeletion_Load(object sender, EventArgs e)
         {
-
             // TODO: This line of code loads data into the 'inventoryManagementDataSet.ItemBaks' table. You can move, or remove it, as needed.
-            this.itemBaksTableAdapter1.Fill(this.inventoryManagementDataSet.ItemBaks);
+            this.itemBaksTableAdapter.Fill(this.inventoryManagementDataSet.ItemBaks);
+
+
             //using (var ctx = new ItemContext())
             //{
 

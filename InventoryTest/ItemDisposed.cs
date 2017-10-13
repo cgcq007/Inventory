@@ -13,13 +13,13 @@ namespace InventoryTest
         {
 
         }
+        [Key]
+        public int ItemDisposedId { get; set; }
         public String ItemTitle { get; set; }
-        [Key,MaxLength(255)]
+        [MaxLength(255)]
         public String SN { get; set; }
-
         [MaxLength(255)]
         public string UPC { get; set; }
-
         [MaxLength(255)]
         public String OrderId { get; set; }
         public string Listed { get; set; }
@@ -40,8 +40,6 @@ namespace InventoryTest
         [MaxLength(255)]
         public string ItemOutOperator { get; set; }
 
-        [MaxLength(255)]
-        public string LPN { get; set; }
         [MaxLength(200)]
         public String Note { get; set; }
         [MaxLength(255)]

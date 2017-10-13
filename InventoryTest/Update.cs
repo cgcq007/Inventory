@@ -48,7 +48,7 @@ namespace InventoryTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (itemTitile.Text.Length != 0  && orderId.Text.Length != 0 && UPC.Text.Length != 0 && SN.Text.Length != 0 && condition.Text.Length != 0)
+            if (itemTitile.Text.Length != 0  && orderId.Text.Length != 0 && SN.Text.Length != 0 && condition.Text.Length != 0)
             {
                 try
                 {
@@ -74,6 +74,7 @@ namespace InventoryTest
                         }
                         ctx.SaveChanges();
                         MessageBox.Show("Successfully updated!");
+                        this.Dispose(true);
                     }
 
                 }
@@ -88,7 +89,7 @@ namespace InventoryTest
             }
             else
             {
-                MessageBox.Show("Item title, order ID, UPC, ");
+                MessageBox.Show("Item title, order ID ");
             }
         }
 

@@ -34,7 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.moreInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.multipleDeleteButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.clearDatePicker = new System.Windows.Forms.DateTimePicker();
             this.pendingBox = new System.Windows.Forms.CheckBox();
             this.ReadyToOut = new System.Windows.Forms.Button();
             this.RcvTime = new System.Windows.Forms.DateTimePicker();
@@ -75,25 +80,25 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.itemCount = new System.Windows.Forms.ToolStripTextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.moreInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,12 +132,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(693, 588);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moreInformationToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 26);
+            // 
+            // moreInformationToolStripMenuItem
+            // 
+            this.moreInformationToolStripMenuItem.Name = "moreInformationToolStripMenuItem";
+            this.moreInformationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.moreInformationToolStripMenuItem.Text = "More Information";
+            this.moreInformationToolStripMenuItem.Click += new System.EventHandler(this.moreInformationToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.multipleDeleteButton);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.clearDatePicker);
             this.groupBox1.Controls.Add(this.pendingBox);
             this.groupBox1.Controls.Add(this.ReadyToOut);
             this.groupBox1.Controls.Add(this.RcvTime);
@@ -155,10 +178,43 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(709, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(228, 536);
+            this.groupBox1.Size = new System.Drawing.Size(228, 929);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Query Parameters";
+            // 
+            // multipleDeleteButton
+            // 
+            this.multipleDeleteButton.Location = new System.Drawing.Point(139, 513);
+            this.multipleDeleteButton.Name = "multipleDeleteButton";
+            this.multipleDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.multipleDeleteButton.TabIndex = 21;
+            this.multipleDeleteButton.Text = "Clear";
+            this.multipleDeleteButton.UseVisualStyleBackColor = true;
+            this.multipleDeleteButton.Visible = false;
+            this.multipleDeleteButton.Click += new System.EventHandler(this.multipleDeleteButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 487);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(195, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Records before the date will be deleted:";
+            this.label7.Visible = false;
+            // 
+            // clearDatePicker
+            // 
+            this.clearDatePicker.CustomFormat = "yyyy-MM-dd";
+            this.clearDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.clearDatePicker.Location = new System.Drawing.Point(23, 515);
+            this.clearDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.clearDatePicker.Name = "clearDatePicker";
+            this.clearDatePicker.Size = new System.Drawing.Size(102, 21);
+            this.clearDatePicker.TabIndex = 19;
+            this.clearDatePicker.Visible = false;
             // 
             // pendingBox
             // 
@@ -167,9 +223,9 @@
             this.pendingBox.Location = new System.Drawing.Point(64, 216);
             this.pendingBox.Margin = new System.Windows.Forms.Padding(2);
             this.pendingBox.Name = "pendingBox";
-            this.pendingBox.Size = new System.Drawing.Size(72, 19);
+            this.pendingBox.Size = new System.Drawing.Size(96, 19);
             this.pendingBox.TabIndex = 15;
-            this.pendingBox.Text = "Pending";
+            this.pendingBox.Text = "Ready to Out";
             this.pendingBox.UseVisualStyleBackColor = true;
             // 
             // ReadyToOut
@@ -229,9 +285,9 @@
             "Unchecked",
             "New",
             "Like New",
-            "Used",
-            "Scratch",
-            "Refurbished",
+            "Very Good",
+            "Good",
+            "Acceptable",
             "Defective ServiceMan",
             "Defective Warrenty",
             "Defective No Warrenty",
@@ -425,7 +481,10 @@
             this.nextPage,
             this.toolStripSeparator3,
             this.toolStripLabel2,
-            this.itemCount});
+            this.itemCount,
+            this.toolStripSeparator4,
+            this.toolStripComboBox1,
+            this.toolStripLabel3});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -566,19 +625,30 @@
             this.itemCount.ReadOnly = true;
             this.itemCount.Size = new System.Drawing.Size(76, 27);
             // 
-            // contextMenuStrip1
+            // toolStripSeparator4
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.moreInformationToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 26);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
-            // moreInformationToolStripMenuItem
+            // toolStripComboBox1
             // 
-            this.moreInformationToolStripMenuItem.Name = "moreInformationToolStripMenuItem";
-            this.moreInformationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.moreInformationToolStripMenuItem.Text = "More Information";
-            this.moreInformationToolStripMenuItem.Click += new System.EventHandler(this.moreInformationToolStripMenuItem_Click);
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "20",
+            "40",
+            "60",
+            "80",
+            "100",
+            "All"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 27);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(67, 24);
+            this.toolStripLabel3.Text = "Items/Page";
             // 
             // Management
             // 
@@ -594,12 +664,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -651,5 +721,11 @@
         private System.Windows.Forms.ToolStripTextBox itemCount;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem moreInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.DateTimePicker clearDatePicker;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button multipleDeleteButton;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
     }
 }

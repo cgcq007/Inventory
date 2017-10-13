@@ -305,8 +305,6 @@ namespace InventoryTest {
             
             private global::System.Data.DataColumn columnItemOutOperator;
             
-            private global::System.Data.DataColumn columnLPN;
-            
             private global::System.Data.DataColumn columnNote;
             
             private global::System.Data.DataColumn columnReturnCode;
@@ -452,14 +450,6 @@ namespace InventoryTest {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LPNColumn {
-                get {
-                    return this.columnLPN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn NoteColumn {
                 get {
                     return this.columnNote;
@@ -533,7 +523,6 @@ namespace InventoryTest {
                         string ItemInOperator, 
                         string ServiceMan, 
                         string ItemOutOperator, 
-                        string LPN, 
                         string Note, 
                         string ReturnCode, 
                         string Location) {
@@ -552,7 +541,6 @@ namespace InventoryTest {
                         ItemInOperator,
                         ServiceMan,
                         ItemOutOperator,
-                        LPN,
                         Note,
                         ReturnCode,
                         Location};
@@ -591,7 +579,6 @@ namespace InventoryTest {
                 this.columnItemInOperator = base.Columns["ItemInOperator"];
                 this.columnServiceMan = base.Columns["ServiceMan"];
                 this.columnItemOutOperator = base.Columns["ItemOutOperator"];
-                this.columnLPN = base.Columns["LPN"];
                 this.columnNote = base.Columns["Note"];
                 this.columnReturnCode = base.Columns["ReturnCode"];
                 this.columnLocation = base.Columns["Location"];
@@ -626,8 +613,6 @@ namespace InventoryTest {
                 base.Columns.Add(this.columnServiceMan);
                 this.columnItemOutOperator = new global::System.Data.DataColumn("ItemOutOperator", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnItemOutOperator);
-                this.columnLPN = new global::System.Data.DataColumn("LPN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLPN);
                 this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNote);
                 this.columnReturnCode = new global::System.Data.DataColumn("ReturnCode", typeof(string), null, global::System.Data.MappingType.Element);
@@ -647,7 +632,6 @@ namespace InventoryTest {
                 this.columnItemInOperator.MaxLength = 255;
                 this.columnServiceMan.MaxLength = 255;
                 this.columnItemOutOperator.MaxLength = 255;
-                this.columnLPN.MaxLength = 255;
                 this.columnNote.MaxLength = 200;
                 this.columnReturnCode.MaxLength = 255;
                 this.columnLocation.MaxLength = 255;
@@ -991,22 +975,6 @@ namespace InventoryTest {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LPN {
-                get {
-                    try {
-                        return ((string)(this[this.tableItemBaks.LPNColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LPN\' in table \'ItemBaks\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableItemBaks.LPNColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Note {
                 get {
                     try {
@@ -1183,18 +1151,6 @@ namespace InventoryTest {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetItemOutOperatorNull() {
                 this[this.tableItemBaks.ItemOutOperatorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLPNNull() {
-                return this.IsNull(this.tableItemBaks.LPNColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLPNNull() {
-                this[this.tableItemBaks.LPNColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1406,14 +1362,13 @@ namespace InventoryTest.InventoryManagementDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ItemInOperator", "ItemInOperator");
             tableMapping.ColumnMappings.Add("ServiceMan", "ServiceMan");
             tableMapping.ColumnMappings.Add("ItemOutOperator", "ItemOutOperator");
-            tableMapping.ColumnMappings.Add("LPN", "LPN");
             tableMapping.ColumnMappings.Add("Note", "Note");
             tableMapping.ColumnMappings.Add("ReturnCode", "ReturnCode");
             tableMapping.ColumnMappings.Add("Location", "Location");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ItemBaks] ([ItemTitle], [SN], [UPC], [OrderId], [Listed], [DateOfRcv], [DateOfOut], [OriginalTrackingNum], [OutTrackingNumber], [Condition], [ItemInOperator], [ServiceMan], [ItemOutOperator], [LPN], [Note], [ReturnCode], [Location]) VALUES (@ItemTitle, @SN, @UPC, @OrderId, @Listed, @DateOfRcv, @DateOfOut, @OriginalTrackingNum, @OutTrackingNumber, @Condition, @ItemInOperator, @ServiceMan, @ItemOutOperator, @LPN, @Note, @ReturnCode, @Location)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ItemBaks] ([ItemTitle], [SN], [UPC], [OrderId], [Listed], [DateOfRcv], [DateOfOut], [OriginalTrackingNum], [OutTrackingNumber], [Condition], [ItemInOperator], [ServiceMan], [ItemOutOperator], [Note], [ReturnCode], [Location]) VALUES (@ItemTitle, @SN, @UPC, @OrderId, @Listed, @DateOfRcv, @DateOfOut, @OriginalTrackingNum, @OutTrackingNumber, @Condition, @ItemInOperator, @ServiceMan, @ItemOutOperator, @Note, @ReturnCode, @Location)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1428,7 +1383,6 @@ namespace InventoryTest.InventoryManagementDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemInOperator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemInOperator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ServiceMan", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ServiceMan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemOutOperator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemOutOperator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LPN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LPN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1449,7 +1403,7 @@ namespace InventoryTest.InventoryManagementDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ItemTitle, SN, UPC, OrderId, Listed, DateOfRcv, DateOfOut, OriginalTrackin" +
                 "gNum, OutTrackingNumber, Condition, ItemInOperator, ServiceMan, ItemOutOperator," +
-                " LPN, Note, ReturnCode, Location FROM dbo.ItemBaks";
+                " Note, ReturnCode, Location FROM dbo.ItemBaks";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1524,7 +1478,6 @@ namespace InventoryTest.InventoryManagementDataSetTableAdapters {
                     string ItemInOperator, 
                     string ServiceMan, 
                     string ItemOutOperator, 
-                    string LPN, 
                     string Note, 
                     string ReturnCode, 
                     string Location) {
@@ -1596,29 +1549,23 @@ namespace InventoryTest.InventoryManagementDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(ItemOutOperator));
             }
-            if ((LPN == null)) {
+            if ((Note == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(LPN));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Note));
             }
-            if ((Note == null)) {
+            if ((ReturnCode == null)) {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Note));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(ReturnCode));
             }
-            if ((ReturnCode == null)) {
+            if ((Location == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(ReturnCode));
-            }
-            if ((Location == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Location));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Location));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

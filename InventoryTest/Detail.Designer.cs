@@ -41,15 +41,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(30, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ItemInOperator";
+            this.label1.Text = "Item In Operator";
             // 
             // itemInOperator
             // 
-            this.itemInOperator.Location = new System.Drawing.Point(95, 6);
+            this.itemInOperator.Location = new System.Drawing.Point(113, 8);
             this.itemInOperator.Name = "itemInOperator";
             this.itemInOperator.ReadOnly = true;
             this.itemInOperator.Size = new System.Drawing.Size(160, 20);
@@ -57,7 +57,7 @@
             // 
             // serviceMan
             // 
-            this.serviceMan.Location = new System.Drawing.Point(95, 39);
+            this.serviceMan.Location = new System.Drawing.Point(113, 41);
             this.serviceMan.Name = "serviceMan";
             this.serviceMan.ReadOnly = true;
             this.serviceMan.Size = new System.Drawing.Size(160, 20);
@@ -66,15 +66,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 42);
+            this.label2.Location = new System.Drawing.Point(18, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "ServiceMan";
+            this.label2.Text = "Last Updated Man";
             // 
             // itemOutOperator
             // 
-            this.itemOutOperator.Location = new System.Drawing.Point(95, 72);
+            this.itemOutOperator.Location = new System.Drawing.Point(113, 74);
             this.itemOutOperator.Name = "itemOutOperator";
             this.itemOutOperator.ReadOnly = true;
             this.itemOutOperator.Size = new System.Drawing.Size(160, 20);
@@ -83,15 +83,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 75);
+            this.label3.Location = new System.Drawing.Point(22, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "ItemOutOperator";
+            this.label3.Text = "Item Out Operator";
             // 
             // returnCode
             // 
-            this.returnCode.Location = new System.Drawing.Point(95, 105);
+            this.returnCode.Location = new System.Drawing.Point(113, 107);
             this.returnCode.Name = "returnCode";
             this.returnCode.ReadOnly = true;
             this.returnCode.Size = new System.Drawing.Size(160, 20);
@@ -100,17 +100,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 108);
+            this.label4.Location = new System.Drawing.Point(43, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "ReturnCode";
+            this.label4.Text = "Return Code";
             // 
             // Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 141);
+            this.ClientSize = new System.Drawing.Size(300, 141);
             this.Controls.Add(this.returnCode);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.itemOutOperator);

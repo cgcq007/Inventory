@@ -25,6 +25,7 @@ namespace InventoryTest
         }
         private void Item_In_Load(object sender, EventArgs e)
         {
+            dateOfRcv.Value = DateTime.Now;
             listed.SelectedIndex = 0;
             condition.SelectedIndex = 0;
         }
@@ -55,7 +56,8 @@ namespace InventoryTest
                     {
                         //MessageBox.Show(dateOfRcv.Text.ToString());
                         Item Ite = new Item() {  ItemTitle = itemTitile.Text.Trim(), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(), OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text.ToString()), Listed = listed.Text, ItemInOperator = uname, Condition = condition.Text, Note = Note.Text.Trim(), Pending = false };
-                        var WholeRecord = ctx.Items.Select(a => a.SN).Union(ctx.ItemsDisposed.Select(b => b.SN));
+                        //var WholeRecord = ctx.Items.Select(a => a.SN).Union(ctx.ItemsDisposed.Select(b => b.SN));
+                        var WholeRecord = ctx.Items.Select(a => a.SN);
                         //MessageBox.Show(WholeRecord.Where(x => x.Equals(SN.Text.Trim())).ToList().ToString());
                         if (WholeRecord.Where(x => x.Equals(SN.Text.Trim())).ToList().Count == 0)
                         {
@@ -67,11 +69,18 @@ namespace InventoryTest
                             {
                                 if (ctr is TextBox)
                                 {
+                                    if(ctr.Name == itemTitile.Name||ctr.Name == originalTrackingNum.Name||ctr.Name == orderId.Name)
+                                    {
+                                        continue;
+                                    }
                                     ctr.Text = "";
                                 }
                             }
+
+                            noSNCheckBox.Checked = false;
+                            dateOfRcv.Value = DateTime.Now;
                             listed.SelectedIndex = 0;
-                            condition.SelectedIndex = 0;
+                            //condition.SelectedIndex = 0;
 
                         }
                         else
@@ -119,6 +128,19 @@ namespace InventoryTest
                 case 2: return "^[a-zA-Z0-9\u4e00-\u9fa5]+$";
                     //number
                 default: return "^[0-9]*$";
+            }
+        }
+
+        private void noSNCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (noSNCheckBox.Checked)
+            {
+                SN.ReadOnly = true;
+                SN.Text = "No " + dateOfRcv.Text;
+            }else
+            {
+                SN.Text = "";
+                SN.ReadOnly = false;
             }
         }
     }

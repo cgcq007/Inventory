@@ -15,12 +15,34 @@ namespace InventoryTest
         string utype;
         string uname;
 
-        int pageSize = 0;     //每页显示行数
+        int pageSize = 40;     //每页显示行数
         int nMax = 0;         //总记录数
         int pageCount = 0;    //页数＝总记录数/每页显示行数
         int pageCurrent = 0;   //当前页号
         int nCurrent = 0;      //当前记录行
         DataTable dtInfo = new DataTable();
+
+        //Dictionary<string, int> width = new Dictionary<string, int>();
+        int itemTitleWidth = 150;
+        int listedWidth = 30;
+        int dateOfRCVWidth = 50;
+        int SNWidth = 80;
+        int locationWidth = 30;
+        int originalTrackingNumWidth = 100;
+        int UPCWidth = 80;
+        int conditionWidth = 50;
+        int OrderIdWidth = 100;
+        int noteWidth = 150;
+        int dateOfOutWidth = 50;
+
+
+        //{
+        //    { "Itemtitle",150 }, { "Listed", 30}, {"DateOfRcv", 50 },
+        //    {"SN", 80 }, {"Location", 30 }, {"OriginalTrackingNum", 100 },
+        //    {"UPC", 80 }, {"Condition", 50 }, {"OrderId", 100 },
+        //    {"Note", 150 }, {"DateOfOut", 50 }
+        //};
+
 
         public Management(string uname, string utype)
         {
@@ -56,24 +78,30 @@ namespace InventoryTest
                 pendingBox.Enabled = true;
                 ReadyToOut.Enabled = true;
                 ItemOut.Enabled = true;
+                
             }
         }
         private void Management_Load(object sender, EventArgs e)
         {
             RcvTime.Checked = false;
+            label7.Visible = false;
+            clearDatePicker.Visible = false;
+            multipleDeleteButton.Visible = false;
+            
+
             using (var ctx = new ItemContext())
             {
                 AddSelect();
                 if (InOrOut.Text.Trim().ToString() == "In Inventory")
                 {
-                    var items = ctx.Items.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).OrderByDescending(order => order.DateOfRcv).ToList();
+                    var items = ctx.Items.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Condition, x.Note, x.Listed, x.Location, x.Pending }).OrderByDescending(order => order.DateOfRcv).ToList();
                     dtInfo = ToDataSet(items);
                     InitDataSet();
                     SetAuthority(utype);
                 }
                 else
                 {
-                    var itemsDisposed = ctx.ItemsDisposed.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv,x.DateOfOut, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).OrderByDescending(order => order.DateOfRcv).ToList();
+                    var itemsDisposed = ctx.ItemsDisposed.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv,x.DateOfOut, x.UPC, x.OutTrackingNumber, x.OrderId, x.Condition, x.Note, x.Listed, x.Location }).OrderByDescending(order => order.DateOfRcv).ToList();
                     dtInfo = ToDataSet(itemsDisposed);
                     InitDataSet();
                     Add.Enabled = false;
@@ -81,9 +109,15 @@ namespace InventoryTest
                     pendingBox.Enabled = false;
                     ItemOut.Enabled = false;
                     ReadyToOut.Enabled = false;
+                    if(utype == "admin")
+                    {
+                        label7.Visible = true;
+                        clearDatePicker.Visible = true;
+                        multipleDeleteButton.Visible = true;
+                    }
                 }
             }
-            setFridViewProperty();
+            //setFridViewProperty();
         }
         private void AddSelect()
         {
@@ -169,7 +203,7 @@ namespace InventoryTest
         }
         private void InitDataSet()
         {
-            pageSize = 40;      //设置页面行数
+            //pageSize = Convert.ToInt32(toolStripComboBox1.Text);    //设置页面行数
             nMax = dtInfo.Rows.Count;
 
             pageCount = (nMax / pageSize);    //计算出总页数
@@ -214,22 +248,98 @@ namespace InventoryTest
             bdsInfo.DataSource = dtTemp;
             bindingNavigator1.BindingSource = bdsInfo;
             dataGridView1.DataSource = bdsInfo;
+            setFridViewProperty();
         }
+        //private void setWith()
+        //{
+        //    foreach (string name in width.Keys)
+        //    {
+        //        if (name == "DateOfOut" && InOrOut.Text == "Out Inventory")
+        //        {
+        //            this.dataGridView1.Columns[name].FillWeight = width[name];
+        //        }
+        //        else
+        //        {
+        //            this.dataGridView1.Columns[name].FillWeight = width[name];
+        //        }
+        //    }
+        //}
+        private void setPendingRowColor()
+        {
+            //using (ItemContext ctx = new ItemContext())
+            //{
+            //    ctx.Items.
+            //}
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    if (((row.Cells["Pending"].Value == DBNull.Value) ? false : Convert.ToBoolean(row.Cells["Pending"].Value)) == true)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.DarkOrange;
+            //    }
+            //}
+
+        }
+
         private void setFridViewProperty()
         {
-            this.dataGridView1.Columns["ItemTitle"].FillWeight = 30;
-            this.dataGridView1.Columns["Listed"].FillWeight = 5;
-            this.dataGridView1.Columns["DateOfRcv"].FillWeight = 5;
-            this.dataGridView1.Columns["SN"].FillWeight = 10;
-            this.dataGridView1.Columns["Location"].FillWeight = 5;
-            this.dataGridView1.Columns["OriginalTrackingNum"].FillWeight = 10;
-            this.dataGridView1.Columns["UPC"].FillWeight = 10;
-            this.dataGridView1.Columns["Condition"].FillWeight = 5;
-            this.dataGridView1.Columns["OrderId"].FillWeight = 10;
-            this.dataGridView1.Columns["Note"].FillWeight = 20;
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dataGridView1.Columns["ItemTitle"].FillWeight = itemTitleWidth;
+            this.dataGridView1.Columns["Listed"].FillWeight = listedWidth;
+            this.dataGridView1.Columns["DateOfRcv"].FillWeight = dateOfRCVWidth;
+            if (InOrOut.Text == "Out Inventory")
+            {
+                this.dataGridView1.Columns["DateOfOut"].FillWeight = dateOfOutWidth;
+                if(this.dataGridView1.Columns.Contains(dataGridView1.Columns["DateOfRcv"])) this.dataGridView1.Columns["DateOfRcv"].Visible = false;
+            }
+            this.dataGridView1.Columns["SN"].FillWeight = SNWidth;
+            this.dataGridView1.Columns["Location"].FillWeight = locationWidth;
+            if (InOrOut.Text == "In Inventory")
+            {
+                //this.dataGridView1.Columns["Pending"].Visible = true;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (((row.Cells["Pending"].Value == DBNull.Value) ? false : Convert.ToBoolean(row.Cells["Pending"].Value)) == true)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightPink;
+                    }
+                }
+                this.dataGridView1.Columns["OriginalTrackingNum"].FillWeight = originalTrackingNumWidth;
+                if (this.dataGridView1.Columns.Contains(dataGridView1.Columns["Pending"])) this.dataGridView1.Columns["Pending"].Visible = false;
+
+            }
+            this.dataGridView1.Columns["UPC"].FillWeight = UPCWidth;
+            this.dataGridView1.Columns["Condition"].FillWeight = conditionWidth;
+            this.dataGridView1.Columns["OrderId"].FillWeight = OrderIdWidth;
+            this.dataGridView1.Columns["Note"].FillWeight = noteWidth;
+            
+            //width.Add("ItemTitle", itemTitleWidth);
+            //width.Add("Listed", listedWidth);
+            //width.Add("DateOfRcv", dateOfRCVWidth);
+            //width.Add("SN", SNWidth);
+            //width.Add("Location", locationWidth);
+            //width.Add("OriginalTrackingNum", originalTrackingNumWidth);
+            //width.Add("UPC", UPCWidth);
+            //width.Add("Condition", conditionWidth);
+            //width.Add("OrderId", OrderIdWidth);
+            //width.Add("Note", noteWidth);
+            //width.Add("DateOfOut", dateOfOutWidth);
+
+            //width.Add("ItemTitle", 150);
+            //width.Add("Listed", 100);
+            //width.Add("DateOfRcv", 100);
+            //width.Add("SN", 100);
+            //width.Add("Location", 100);
+            //width.Add("OriginalTrackingNum", 100);
+            //width.Add("UPC", 100);
+            //width.Add("Condition", 100);
+            //width.Add("OrderId", 100);
+            //width.Add("Note", 100);
+            //width.Add("DateOfOut", 100);
 
 
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //setWith();
+            //dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ClearSelection();
 
             //dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
@@ -256,9 +366,21 @@ namespace InventoryTest
             //dataGridView1.AllowUserToResizeColumns = true;
             //dataGridView1.AllowUserToAddRows = false;
         }
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(toolStripComboBox1.Text == "All")
+            {
+                pageSize = nMax;
+            }
+            else
+            {
+                pageSize = Convert.ToInt32(toolStripComboBox1.Text.ToString());
+            }
+            InitDataSet();
+            
+        }
         private void bindingNavigator1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
             if (e.ClickedItem.Text == "Previous Page")
             {
                 pageCurrent--;
@@ -308,7 +430,7 @@ namespace InventoryTest
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
             var first = dataGridView1.Rows.GetFirstRow(DataGridViewElementStates.Selected);
             if (first >= 0) { dataGridView1.Rows[first].Cells["Selected"].Value = !Convert.ToBoolean(dataGridView1.Rows[first].Cells["Selected"].Value); }
 
@@ -327,14 +449,14 @@ namespace InventoryTest
             UPC.Text = "";
             SN.Text = "";
             OrderId.Text = "";
-            Condition.Text = "";
+            Condition.SelectedIndex = -1;
             pendingBox.Checked = false;
-            Management_Load(this, e);
+            Management_Load(this,e);
         }
         private void Add_Click(object sender, EventArgs e)
         {
             Item_In itemIn = new Item_In(uname);
-            itemIn.ShowDialog();
+            itemIn.Show();
         }
 
         private void Modify_Click(object sender, EventArgs e)
@@ -360,7 +482,7 @@ namespace InventoryTest
             {
                 MessageBox.Show("Please Select One Item!");
             }
-            Management_Load(this, e);
+            Management_Load(this,e);
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -385,6 +507,7 @@ namespace InventoryTest
                         if (Convert.ToBoolean(row.Cells["Selected"].Value))
                         {
                             string snDelete = row.Cells["SN"].Value.ToString();
+                            string oIdDelete = row.Cells["OrderId"].Value.ToString();
                             string inventoryDelete = InOrOut.Text.ToString();
 
                             try
@@ -403,9 +526,9 @@ namespace InventoryTest
                                     {
 
                                         //MessageBox.Show(id.ToString());
-                                        ItemDisposed it = ctx.ItemsDisposed.Where(u => u.SN == snDelete).First<ItemDisposed>();
+                                        ItemDisposed it = ctx.ItemsDisposed.Where(o => o.OrderId == oIdDelete).Where(u => u.SN == snDelete).First<ItemDisposed>();
                                         ItemBak bak = new ItemBak() { ItemTitle = it.ItemTitle, SN = it.SN, UPC = it.UPC, Condition = it.Condition, DateOfOut = it.DateOfOut, DateOfRcv = it.DateOfRcv, ItemInOperator = it.ItemInOperator,
-                                        ItemOutOperator = it.ItemOutOperator, Listed = it.Listed, Location = it.Location, LPN = it.LPN, Note = it.Note, OrderId = it.OrderId,
+                                        ItemOutOperator = it.ItemOutOperator, Listed = it.Listed, Location = it.Location, Note = it.Note, OrderId = it.OrderId,
                                         OriginalTrackingNum = it.OriginalTrackingNum, OutTrackingNumber = it.OutTrackingNumber, ReturnCode = it.ReturnCode, ServiceMan = it.ServiceMan};
                                         ctx.ItemBaks.Add(bak);
                                         ctx.ItemsDisposed.Remove(it);
@@ -440,7 +563,7 @@ namespace InventoryTest
             {
                 //MessageBox.Show("Delete Successfully!");
                 del = false;
-                Management_Load(this, e);
+                Management_Load(this,e);
             }
         }
 
@@ -475,7 +598,7 @@ namespace InventoryTest
 
                     if (InOrOut.Text.Trim().ToString() == "Out Inventory")
                     {
-                        var blur = ctx.ItemsDisposed.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).OrderByDescending(order => order.DateOfRcv).Where(a => true);
+                        var blur = ctx.ItemsDisposed.Select( x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.DateOfOut, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).OrderByDescending(order => order.DateOfRcv).Where(a => true);
                         if (ItemTitle.Text.Trim().Length != 0)
                         {
                             blur = blur.Where(title => title.ItemTitle.Contains(ItemTitle.Text.Trim()));
@@ -490,11 +613,11 @@ namespace InventoryTest
                         }
                         if (SN.Text.Trim().Length != 0)
                         {
-                            blur = blur.Where(sn => sn.SN == SN.Text.Trim());
+                            blur = blur.Where(sn => sn.SN.Contains(SN.Text.Trim()));
                         }
                         if (Condition.Text.Trim().Length != 0)
                         {
-                            blur = blur.Where(condition => condition.Condition == Condition.Text);
+                            blur = blur.Where(condition => condition.Condition.Contains(Condition.Text));
                         }
                         if (this.RcvTime.Checked == true)
                         {
@@ -511,7 +634,7 @@ namespace InventoryTest
                         dtInfo = ToDataSet(blurResult);
                         InitDataSet();
                         //dataGridView1.DataSource = ToDataSet(blurResult);
-                        setFridViewProperty();
+                        //setFridViewProperty();
                     }
                     else
                     {
@@ -534,7 +657,7 @@ namespace InventoryTest
                         }
                         if (Condition.Text.Trim().Length != 0)
                         {
-                            blur = blur.Where(condition => condition.Condition == Condition.Text);
+                            blur = blur.Where(condition => condition.Condition.Contains(Condition.Text));
                         }
                         if (pendingBox.Checked == true)
                         {
@@ -546,11 +669,11 @@ namespace InventoryTest
                             blur = blur.Where(time => DbFunctions.DiffDays(time.DateOfRcv, rcv) == 0);
                             RcvTime.Checked = false;
                         }
-                        var blurResult = blur.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).ToList();
+                        //var blurResult = blur.Select(x => new { x.ItemTitle, x.SN, x.DateOfRcv, x.UPC, x.OriginalTrackingNum, x.OrderId, x.Note, x.Condition, x.Listed, x.Location }).ToList();
                         //AddSelect();
-                        dtInfo = ToDataSet(blurResult);
+                        dtInfo = ToDataSet(blur.ToList());
                         InitDataSet();
-                        setFridViewProperty();
+                        //setFridViewProperty();
                     }
                 }
             }
@@ -594,6 +717,7 @@ namespace InventoryTest
                     using (var ctx = new ItemContext())
                     {
                         //var it = ctx.Items.Where(sn => sn.SN == itemOut);
+                        var item = ctx.Items.Where(sn => sn.SN == itemOut).First();
                         ItemDisposed itemDis = new ItemDisposed();
                         {
                             itemDis.ItemTitle = row.Cells["ItemTitle"].Value.ToString();
@@ -606,12 +730,11 @@ namespace InventoryTest
                             itemDis.OutTrackingNumber = outTrackingNum;
                             itemDis.Condition = row.Cells["Condition"].Value.ToString();
                             itemDis.Listed = row.Cells["Listed"].Value.ToString();
-                            itemDis.ItemInOperator = row.Cells["ItemInOperator"].Value.ToString();
-                            itemDis.ServiceMan = row.Cells["ServiceMan"].Value.ToString();
+                            itemDis.ItemInOperator = item.ItemInOperator;
+                            itemDis.ServiceMan = item.ServiceMan;
                             itemDis.ItemOutOperator = uname;
-                            itemDis.LPN = row.Cells["LPN"].Value.ToString();
                             itemDis.Note = row.Cells["Note"].Value.ToString();
-                            itemDis.ReturnCode = row.Cells["ReturnCode"].Value.ToString();
+                            itemDis.ReturnCode = item.ReturnCode;
                             itemDis.Location = row.Cells["Location"].Value.ToString();
                         }
                         ctx.ItemsDisposed.Add(itemDis);
@@ -660,7 +783,19 @@ namespace InventoryTest
                     {
                         using (var ctx = new ItemContext())
                         {
-                            Item ite = new Item() {SN = row.Cells["SN"].Value.ToString(), Pending = !Convert.ToBoolean(row.Cells["Pending"].Value) };
+                            string rdy = row.Cells["SN"].Value.ToString();
+                            var pending = ctx.Items.Where(sn => sn.SN == rdy).Select(x=>x.Pending).First();
+                            var condition = ctx.Items.Where(sn => sn.SN == rdy).Select(x => x.Condition).First();
+                            if(pending == null)
+                            {
+                                pending = false;
+                            }
+                            if (condition.Contains("unchecked")||condition.Contains("Unchecked"))
+                            {
+                                MessageBox.Show("Unchecked Item Cannot set to rdy to out");
+                                return;
+                            }
+                            Item ite = new Item() {SN = row.Cells["SN"].Value.ToString(), Pending = !Convert.ToBoolean(pending.Value) };
                             ctx.Entry<Item>(ite).State = EntityState.Unchanged;
                             ctx.Entry<Item>(ite).Property(p => p.Pending).IsModified = true;
                             ctx.SaveChanges();
@@ -684,7 +819,8 @@ namespace InventoryTest
             if(item >= 0)
             {
                 string snDetail = this.dataGridView1.Rows[item].Cells["SN"].Value.ToString();
-                Detail detail = new Detail(snDetail);
+                string orderDetail = this.dataGridView1.Rows[item].Cells["OrderId"].Value.ToString();
+                Detail detail = new Detail(snDetail, orderDetail, InOrOut.Text);
                 detail.ShowDialog();
             }
             else
@@ -692,6 +828,77 @@ namespace InventoryTest
                 MessageBox.Show("Pleas select one item!");
             }
             
+        }
+
+
+        private void multipleDeleteButton_Click(object sender, EventArgs e)
+        {
+            DateTime time1 = Convert.ToDateTime(clearDatePicker.Text);
+            if (MessageBox.Show("The Log before " + time1.Date + " will be deleted", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                using (ItemContext ctx = new ItemContext())
+                {
+
+                    var list = ctx.ItemsDisposed.Where(a => a.DateOfOut.CompareTo(time1) < 0);
+                    foreach (var it in list)
+                    {
+                        ItemBak bak = new ItemBak()
+                        {
+                            ItemTitle = it.ItemTitle,
+                            SN = it.SN,
+                            UPC = it.UPC,
+                            Condition = it.Condition,
+                            DateOfOut = it.DateOfOut,
+                            DateOfRcv = it.DateOfRcv,
+                            ItemInOperator = it.ItemInOperator,
+                            ItemOutOperator = it.ItemOutOperator,
+                            Listed = it.Listed,
+                            Location = it.Location,
+                            Note = it.Note,
+                            OrderId = it.OrderId,
+                            OriginalTrackingNum = it.OriginalTrackingNum,
+                            OutTrackingNumber = it.OutTrackingNumber,
+                            ReturnCode = it.ReturnCode,
+                            ServiceMan = it.ServiceMan
+                        };
+                        ctx.ItemBaks.Add(bak);
+                        ctx.ItemsDisposed.Remove(it);
+                    }
+                    ctx.SaveChanges();
+                    MessageBox.Show("Clearance Successfully!");
+                }
+            Management_Load(this, e);
+        }
+
+        private void dataGridView1_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            //if(dataGridView1.Columns.Contains(dataGridView1.Columns["ItemTitle"])) MessageBox.Show(dataGridView1.Columns["ItemTitle"].FillWeight.ToString());
+
+            //itemTitleWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["ItemTitle"])) ? Convert.ToInt32(dataGridView1.Columns["ItemTitle"].Width) : itemTitleWidth;
+            //listedWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["Listed"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["Listed"].FillWeight);
+            //SNWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["SN"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["SN"].FillWeight);
+            //locationWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["Location"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["Location"].FillWeight);
+            //UPCWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["UPC"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["UPC"].FillWeight);
+            //conditionWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["Condition"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["Condition"].FillWeight);
+            //OrderIdWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["OrderId"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["OrderId"].FillWeight);
+            //noteWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["Note"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["Note"].FillWeight);
+
+            //if (InOrOut.Text == "Out Inventory")
+            //{
+            //    dateOfOutWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["DateOfOut"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["DateOfOut"].FillWeight);
+            //    originalTrackingNumWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["OutTrackingNum"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["OutTrackingNum"].FillWeight);
+            //}
+            //if (InOrOut.Text == "In Inventory")
+            //{
+            //    dateOfRCVWidth = (dataGridView1.Columns.Contains(dataGridView1.Columns["DateOfRcv"])) ? itemTitleWidth : Convert.ToInt32(dataGridView1.Columns["DateOfRcv"].FillWeight);
+            //}
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;//将当前单元格设为可读
+            this.dataGridView1.CurrentCell = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];//获取当前单元格
+            this.dataGridView1.BeginEdit(true);//将单元格设为编辑状态
         }
     }
 }

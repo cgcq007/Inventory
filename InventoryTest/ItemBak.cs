@@ -43,8 +43,6 @@ namespace InventoryTest
         [MaxLength(255)]
         public string ItemOutOperator { get; set; }
 
-        [MaxLength(255)]
-        public string LPN { get; set; }
         [MaxLength(200)]
         public String Note { get; set; }
         [MaxLength(255)]

@@ -52,13 +52,14 @@
             this.location = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.noSNCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 27);
+            this.label1.Location = new System.Drawing.Point(73, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 15);
             this.label1.TabIndex = 8;
@@ -68,7 +69,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(40, 295);
+            this.label8.Location = new System.Drawing.Point(60, 293);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 15);
             this.label8.TabIndex = 9;
@@ -78,7 +79,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 67);
+            this.label3.Location = new System.Drawing.Point(73, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 15);
             this.label3.TabIndex = 10;
@@ -88,7 +89,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(71, 103);
+            this.label4.Location = new System.Drawing.Point(91, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 15);
             this.label4.TabIndex = 11;
@@ -97,7 +98,7 @@
             // itemTitile
             // 
             this.itemTitile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemTitile.Location = new System.Drawing.Point(112, 24);
+            this.itemTitile.Location = new System.Drawing.Point(132, 22);
             this.itemTitile.MaxLength = 128;
             this.itemTitile.Name = "itemTitile";
             this.itemTitile.Size = new System.Drawing.Size(226, 21);
@@ -106,7 +107,7 @@
             // orderId
             // 
             this.orderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderId.Location = new System.Drawing.Point(112, 63);
+            this.orderId.Location = new System.Drawing.Point(132, 61);
             this.orderId.MaxLength = 32;
             this.orderId.Name = "orderId";
             this.orderId.Size = new System.Drawing.Size(226, 21);
@@ -115,7 +116,7 @@
             // UPC
             // 
             this.UPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UPC.Location = new System.Drawing.Point(112, 101);
+            this.UPC.Location = new System.Drawing.Point(132, 99);
             this.UPC.MaxLength = 32;
             this.UPC.Name = "UPC";
             this.UPC.Size = new System.Drawing.Size(226, 21);
@@ -124,7 +125,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(69, 537);
+            this.button1.Location = new System.Drawing.Point(89, 535);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 25);
             this.button1.TabIndex = 12;
@@ -135,7 +136,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(232, 537);
+            this.button2.Location = new System.Drawing.Point(268, 535);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 25);
             this.button2.TabIndex = 13;
@@ -147,7 +148,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 141);
+            this.label7.Location = new System.Drawing.Point(100, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 15);
             this.label7.TabIndex = 12;
@@ -157,7 +158,7 @@
             // 
             this.SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SN.Location = new System.Drawing.Point(112, 139);
+            this.SN.Location = new System.Drawing.Point(132, 137);
             this.SN.MaxLength = 32;
             this.SN.Name = "SN";
             this.SN.Size = new System.Drawing.Size(226, 21);
@@ -167,7 +168,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(48, 369);
+            this.label9.Location = new System.Drawing.Point(68, 367);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 15);
             this.label9.TabIndex = 13;
@@ -184,15 +185,15 @@
             "Unchecked",
             "New",
             "Like New",
-            "Used",
-            "Scratch",
-            "Refurbished",
+            "Very Good",
+            "Good",
+            "Acceptable",
             "Defective ServiceMan",
             "Defective Warrenty",
             "Defective No Warrenty",
             "Defective Cannot Repair ",
             "Other..."});
-            this.condition.Location = new System.Drawing.Point(112, 367);
+            this.condition.Location = new System.Drawing.Point(132, 365);
             this.condition.Margin = new System.Windows.Forms.Padding(2);
             this.condition.Name = "condition";
             this.condition.Size = new System.Drawing.Size(226, 23);
@@ -200,10 +201,10 @@
             // 
             // dateOfRcv
             // 
-            this.dateOfRcv.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.dateOfRcv.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateOfRcv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfRcv.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOfRcv.Location = new System.Drawing.Point(112, 289);
+            this.dateOfRcv.Location = new System.Drawing.Point(132, 287);
             this.dateOfRcv.Margin = new System.Windows.Forms.Padding(2);
             this.dateOfRcv.Name = "dateOfRcv";
             this.dateOfRcv.Size = new System.Drawing.Size(226, 24);
@@ -212,7 +213,7 @@
             // Note
             // 
             this.Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Note.Location = new System.Drawing.Point(112, 407);
+            this.Note.Location = new System.Drawing.Point(132, 405);
             this.Note.Margin = new System.Windows.Forms.Padding(2);
             this.Note.MaxLength = 300;
             this.Note.Multiline = true;
@@ -226,7 +227,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 409);
+            this.label5.Location = new System.Drawing.Point(60, 407);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 15);
@@ -236,7 +237,7 @@
             // originalTrackingNum
             // 
             this.originalTrackingNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.originalTrackingNum.Location = new System.Drawing.Point(112, 178);
+            this.originalTrackingNum.Location = new System.Drawing.Point(132, 176);
             this.originalTrackingNum.Margin = new System.Windows.Forms.Padding(2);
             this.originalTrackingNum.MaxLength = 32;
             this.originalTrackingNum.Name = "originalTrackingNum";
@@ -246,7 +247,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1, 182);
+            this.label6.Location = new System.Drawing.Point(21, 180);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 13);
@@ -262,7 +263,7 @@
             "Not Yet",
             "Amazon",
             "eBay"});
-            this.listed.Location = new System.Drawing.Point(112, 327);
+            this.listed.Location = new System.Drawing.Point(132, 325);
             this.listed.Margin = new System.Windows.Forms.Padding(2);
             this.listed.Name = "listed";
             this.listed.Size = new System.Drawing.Size(226, 23);
@@ -272,7 +273,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(66, 329);
+            this.label10.Location = new System.Drawing.Point(86, 327);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 15);
@@ -282,7 +283,7 @@
             // returnCode
             // 
             this.returnCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnCode.Location = new System.Drawing.Point(112, 219);
+            this.returnCode.Location = new System.Drawing.Point(132, 217);
             this.returnCode.Margin = new System.Windows.Forms.Padding(2);
             this.returnCode.MaxLength = 32;
             this.returnCode.Name = "returnCode";
@@ -292,7 +293,7 @@
             // location
             // 
             this.location.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.location.Location = new System.Drawing.Point(112, 254);
+            this.location.Location = new System.Drawing.Point(132, 252);
             this.location.Margin = new System.Windows.Forms.Padding(2);
             this.location.MaxLength = 32;
             this.location.Name = "location";
@@ -303,7 +304,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(32, 221);
+            this.label11.Location = new System.Drawing.Point(52, 219);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 15);
@@ -314,18 +315,30 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(52, 254);
+            this.label12.Location = new System.Drawing.Point(72, 252);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 28;
             this.label12.Text = "Location";
             // 
+            // noSNCheckBox
+            // 
+            this.noSNCheckBox.AutoSize = true;
+            this.noSNCheckBox.Location = new System.Drawing.Point(364, 141);
+            this.noSNCheckBox.Name = "noSNCheckBox";
+            this.noSNCheckBox.Size = new System.Drawing.Size(58, 17);
+            this.noSNCheckBox.TabIndex = 29;
+            this.noSNCheckBox.Text = "No-SN";
+            this.noSNCheckBox.UseVisualStyleBackColor = true;
+            this.noSNCheckBox.CheckedChanged += new System.EventHandler(this.noSNCheckBox_CheckedChanged);
+            // 
             // Item_In
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 612);
+            this.ClientSize = new System.Drawing.Size(428, 612);
+            this.Controls.Add(this.noSNCheckBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.location);
@@ -388,5 +401,6 @@
         private System.Windows.Forms.TextBox location;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox noSNCheckBox;
     }
 }

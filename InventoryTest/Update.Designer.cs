@@ -182,9 +182,9 @@
             "Unchecked",
             "New",
             "Like New",
-            "Used",
-            "Scratch",
-            "Refurbished",
+            "Very Good",
+            "Good",
+            "Acceptable",
             "Defective ServiceMan",
             "Defective Warrenty",
             "Defective No Warrenty",
@@ -198,7 +198,7 @@
             // 
             // dateOfRcv
             // 
-            this.dateOfRcv.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.dateOfRcv.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateOfRcv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfRcv.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateOfRcv.Location = new System.Drawing.Point(112, 281);
