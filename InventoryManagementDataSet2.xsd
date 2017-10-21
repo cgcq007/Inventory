@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InventoryManagementDataSet" targetNamespace="http://tempuri.org/InventoryManagementDataSet2.xsd" xmlns:mstns="http://tempuri.org/InventoryManagementDataSet2.xsd" xmlns="http://tempuri.org/InventoryManagementDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="InventoryManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="InventoryManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.InventoryTest.Properties.Settings.GlobalReference.Default.InventoryManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ItemBaksTableAdapter" GeneratorDataComponentClassName="ItemBaksTableAdapter" Name="ItemBaks" UserDataComponentName="ItemBaksTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="InventoryManagementConnectionString (Settings)" DbObjectName="InventoryManagement.dbo.ItemBaks" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ItemTitle, SN, UPC, OrderId, Listed, DateOfRcv, DateOfOut, OriginalTrackingNum, OutTrackingNumber, Condition, ItemInOperator, ServiceMan, ItemOutOperator, LPN, Note, ReturnCode, Location FROM dbo.ItemBaks</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemTitle" DataSetColumn="ItemTitle" />
+              <Mapping SourceColumn="SN" DataSetColumn="SN" />
+              <Mapping SourceColumn="UPC" DataSetColumn="UPC" />
+              <Mapping SourceColumn="OrderId" DataSetColumn="OrderId" />
+              <Mapping SourceColumn="Listed" DataSetColumn="Listed" />
+              <Mapping SourceColumn="DateOfRcv" DataSetColumn="DateOfRcv" />
+              <Mapping SourceColumn="DateOfOut" DataSetColumn="DateOfOut" />
+              <Mapping SourceColumn="OriginalTrackingNum" DataSetColumn="OriginalTrackingNum" />
+              <Mapping SourceColumn="OutTrackingNumber" DataSetColumn="OutTrackingNumber" />
+              <Mapping SourceColumn="Condition" DataSetColumn="Condition" />
+              <Mapping SourceColumn="ItemInOperator" DataSetColumn="ItemInOperator" />
+              <Mapping SourceColumn="ServiceMan" DataSetColumn="ServiceMan" />
+              <Mapping SourceColumn="ItemOutOperator" DataSetColumn="ItemOutOperator" />
+              <Mapping SourceColumn="LPN" DataSetColumn="LPN" />
+              <Mapping SourceColumn="Note" DataSetColumn="Note" />
+              <Mapping SourceColumn="ReturnCode" DataSetColumn="ReturnCode" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InventoryManagementDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="InventoryManagementDataSet" msprop:Generator_UserDSName="InventoryManagementDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ItemBaks" msprop:Generator_TableClassName="ItemBaksDataTable" msprop:Generator_TableVarName="tableItemBaks" msprop:Generator_TablePropName="ItemBaks" msprop:Generator_RowDeletingName="ItemBaksRowDeleting" msprop:Generator_RowChangingName="ItemBaksRowChanging" msprop:Generator_RowEvHandlerName="ItemBaksRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemBaksRowDeleted" msprop:Generator_UserTableName="ItemBaks" msprop:Generator_RowChangedName="ItemBaksRowChanged" msprop:Generator_RowEvArgName="ItemBaksRowChangeEvent" msprop:Generator_RowClassName="ItemBaksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemTitle" msprop:Generator_ColumnVarNameInTable="columnItemTitle" msprop:Generator_ColumnPropNameInRow="ItemTitle" msprop:Generator_ColumnPropNameInTable="ItemTitleColumn" msprop:Generator_UserColumnName="ItemTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SN" msprop:Generator_ColumnVarNameInTable="columnSN" msprop:Generator_ColumnPropNameInRow="SN" msprop:Generator_ColumnPropNameInTable="SNColumn" msprop:Generator_UserColumnName="SN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPC" msprop:Generator_ColumnVarNameInTable="columnUPC" msprop:Generator_ColumnPropNameInRow="UPC" msprop:Generator_ColumnPropNameInTable="UPCColumn" msprop:Generator_UserColumnName="UPC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderId" msprop:Generator_ColumnVarNameInTable="columnOrderId" msprop:Generator_ColumnPropNameInRow="OrderId" msprop:Generator_ColumnPropNameInTable="OrderIdColumn" msprop:Generator_UserColumnName="OrderId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Listed" msprop:Generator_ColumnVarNameInTable="columnListed" msprop:Generator_ColumnPropNameInRow="Listed" msprop:Generator_ColumnPropNameInTable="ListedColumn" msprop:Generator_UserColumnName="Listed" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOfRcv" msprop:Generator_ColumnVarNameInTable="columnDateOfRcv" msprop:Generator_ColumnPropNameInRow="DateOfRcv" msprop:Generator_ColumnPropNameInTable="DateOfRcvColumn" msprop:Generator_UserColumnName="DateOfRcv" type="xs:dateTime" />
+              <xs:element name="DateOfOut" msprop:Generator_ColumnVarNameInTable="columnDateOfOut" msprop:Generator_ColumnPropNameInRow="DateOfOut" msprop:Generator_ColumnPropNameInTable="DateOfOutColumn" msprop:Generator_UserColumnName="DateOfOut" type="xs:dateTime" />
+              <xs:element name="OriginalTrackingNum" msprop:Generator_ColumnVarNameInTable="columnOriginalTrackingNum" msprop:Generator_ColumnPropNameInRow="OriginalTrackingNum" msprop:Generator_ColumnPropNameInTable="OriginalTrackingNumColumn" msprop:Generator_UserColumnName="OriginalTrackingNum" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OutTrackingNumber" msprop:Generator_ColumnVarNameInTable="columnOutTrackingNumber" msprop:Generator_ColumnPropNameInRow="OutTrackingNumber" msprop:Generator_ColumnPropNameInTable="OutTrackingNumberColumn" msprop:Generator_UserColumnName="OutTrackingNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Condition" msprop:Generator_ColumnVarNameInTable="columnCondition" msprop:Generator_ColumnPropNameInRow="Condition" msprop:Generator_ColumnPropNameInTable="ConditionColumn" msprop:Generator_UserColumnName="Condition" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemInOperator" msprop:Generator_ColumnVarNameInTable="columnItemInOperator" msprop:Generator_ColumnPropNameInRow="ItemInOperator" msprop:Generator_ColumnPropNameInTable="ItemInOperatorColumn" msprop:Generator_UserColumnName="ItemInOperator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ServiceMan" msprop:Generator_ColumnVarNameInTable="columnServiceMan" msprop:Generator_ColumnPropNameInRow="ServiceMan" msprop:Generator_ColumnPropNameInTable="ServiceManColumn" msprop:Generator_UserColumnName="ServiceMan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemOutOperator" msprop:Generator_ColumnVarNameInTable="columnItemOutOperator" msprop:Generator_ColumnPropNameInRow="ItemOutOperator" msprop:Generator_ColumnPropNameInTable="ItemOutOperatorColumn" msprop:Generator_UserColumnName="ItemOutOperator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LPN" msprop:Generator_ColumnVarNameInTable="columnLPN" msprop:Generator_ColumnPropNameInRow="LPN" msprop:Generator_ColumnPropNameInTable="LPNColumn" msprop:Generator_UserColumnName="LPN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReturnCode" msprop:Generator_ColumnVarNameInTable="columnReturnCode" msprop:Generator_ColumnPropNameInRow="ReturnCode" msprop:Generator_ColumnPropNameInTable="ReturnCodeColumn" msprop:Generator_UserColumnName="ReturnCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
