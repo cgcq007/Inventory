@@ -36,10 +36,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.moreInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LPN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.TextBox();
             this.multipleDeleteButton = new System.Windows.Forms.Button();
@@ -88,6 +89,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectedCount = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -134,7 +137,7 @@
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(693, 588);
+            this.dataGridView1.Size = new System.Drawing.Size(693, 637);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -144,11 +147,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectAllToolStripMenuItem,
-            this.clearSelectionToolStripMenuItem,
             this.toolStripSeparator5,
             this.moreInformationToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 54);
             // 
             // selectAllToolStripMenuItem
             // 
@@ -156,13 +158,6 @@
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
-            // 
-            // clearSelectionToolStripMenuItem
-            // 
-            this.clearSelectionToolStripMenuItem.Name = "clearSelectionToolStripMenuItem";
-            this.clearSelectionToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.clearSelectionToolStripMenuItem.Text = "Unselect All";
-            this.clearSelectionToolStripMenuItem.Click += new System.EventHandler(this.clearSelectionStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -181,6 +176,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.LPN);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.location);
             this.groupBox1.Controls.Add(this.multipleDeleteButton);
@@ -208,10 +205,28 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(699, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 929);
+            this.groupBox1.Size = new System.Drawing.Size(247, 978);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Query Parameters";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(39, 233);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 15);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "LPN";
+            // 
+            // LPN
+            // 
+            this.LPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPN.Location = new System.Drawing.Point(80, 230);
+            this.LPN.Name = "LPN";
+            this.LPN.Size = new System.Drawing.Size(136, 21);
+            this.LPN.TabIndex = 6;
             // 
             // label8
             // 
@@ -233,7 +248,7 @@
             // 
             // multipleDeleteButton
             // 
-            this.multipleDeleteButton.Location = new System.Drawing.Point(155, 513);
+            this.multipleDeleteButton.Location = new System.Drawing.Point(155, 560);
             this.multipleDeleteButton.Name = "multipleDeleteButton";
             this.multipleDeleteButton.Size = new System.Drawing.Size(75, 23);
             this.multipleDeleteButton.TabIndex = 21;
@@ -245,7 +260,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 487);
+            this.label7.Location = new System.Drawing.Point(27, 534);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(195, 13);
             this.label7.TabIndex = 20;
@@ -257,7 +272,7 @@
             this.clearDatePicker.CustomFormat = "yyyy-MM-dd";
             this.clearDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.clearDatePicker.Location = new System.Drawing.Point(39, 515);
+            this.clearDatePicker.Location = new System.Drawing.Point(39, 562);
             this.clearDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.clearDatePicker.Name = "clearDatePicker";
             this.clearDatePicker.Size = new System.Drawing.Size(102, 21);
@@ -268,22 +283,22 @@
             // 
             this.pendingBox.AutoSize = true;
             this.pendingBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingBox.Location = new System.Drawing.Point(80, 255);
+            this.pendingBox.Location = new System.Drawing.Point(80, 294);
             this.pendingBox.Margin = new System.Windows.Forms.Padding(2);
             this.pendingBox.Name = "pendingBox";
             this.pendingBox.Size = new System.Drawing.Size(96, 19);
-            this.pendingBox.TabIndex = 7;
+            this.pendingBox.TabIndex = 8;
             this.pendingBox.Text = "Ready to Out";
             this.pendingBox.UseVisualStyleBackColor = true;
             // 
             // ReadyToOut
             // 
             this.ReadyToOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReadyToOut.Location = new System.Drawing.Point(26, 381);
+            this.ReadyToOut.Location = new System.Drawing.Point(26, 428);
             this.ReadyToOut.Margin = new System.Windows.Forms.Padding(2);
             this.ReadyToOut.Name = "ReadyToOut";
             this.ReadyToOut.Size = new System.Drawing.Size(210, 32);
-            this.ReadyToOut.TabIndex = 12;
+            this.ReadyToOut.TabIndex = 13;
             this.ReadyToOut.Text = "Ready/NotReady ToOut";
             this.ReadyToOut.UseVisualStyleBackColor = true;
             this.ReadyToOut.Click += new System.EventHandler(this.ReadyToOut_Click);
@@ -303,12 +318,12 @@
             // ItemOut
             // 
             this.ItemOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemOut.Location = new System.Drawing.Point(155, 418);
+            this.ItemOut.Location = new System.Drawing.Point(155, 465);
             this.ItemOut.Margin = new System.Windows.Forms.Padding(2);
             this.ItemOut.Name = "ItemOut";
             this.ItemOut.Size = new System.Drawing.Size(81, 54);
             this.ItemOut.TabIndex = 14;
-            this.ItemOut.Text = "Item Out";
+            this.ItemOut.Text = "Item Out(&o)";
             this.ItemOut.UseVisualStyleBackColor = true;
             this.ItemOut.Click += new System.EventHandler(this.ItemOut_Click);
             // 
@@ -316,11 +331,11 @@
             // 
             this.Modify.Enabled = false;
             this.Modify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modify.Location = new System.Drawing.Point(167, 336);
+            this.Modify.Location = new System.Drawing.Point(167, 383);
             this.Modify.Name = "Modify";
             this.Modify.Size = new System.Drawing.Size(69, 25);
-            this.Modify.TabIndex = 10;
-            this.Modify.Text = "Modify";
+            this.Modify.TabIndex = 11;
+            this.Modify.Text = "Modify(&w)";
             this.Modify.UseVisualStyleBackColor = true;
             this.Modify.Click += new System.EventHandler(this.Modify_Click);
             // 
@@ -338,15 +353,15 @@
             "Acceptable",
             "Refurbished",
             "Defective ServiceMan",
-            "Defective Warrenty",
-            "Defective No Warrenty",
+            "Defective Warranty",
+            "Defective No Warranty",
             "Defective Cannot Repair ",
             "Other..."});
-            this.Condition.Location = new System.Drawing.Point(80, 229);
+            this.Condition.Location = new System.Drawing.Point(80, 268);
             this.Condition.Margin = new System.Windows.Forms.Padding(2);
             this.Condition.Name = "Condition";
             this.Condition.Size = new System.Drawing.Size(136, 23);
-            this.Condition.TabIndex = 6;
+            this.Condition.TabIndex = 7;
             // 
             // OrderId
             // 
@@ -360,22 +375,22 @@
             // 
             this.Add.Enabled = false;
             this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add.Location = new System.Drawing.Point(26, 418);
+            this.Add.Location = new System.Drawing.Point(26, 465);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(81, 54);
-            this.Add.TabIndex = 13;
-            this.Add.Text = "Item In";
+            this.Add.TabIndex = 15;
+            this.Add.Text = "Item In(&i)";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Clear
             // 
             this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear.Location = new System.Drawing.Point(30, 293);
+            this.Clear.Location = new System.Drawing.Point(30, 340);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(69, 25);
-            this.Clear.TabIndex = 9;
-            this.Clear.Text = "Refresh";
+            this.Clear.TabIndex = 10;
+            this.Clear.Text = "Refresh(&r)";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
@@ -383,11 +398,11 @@
             // 
             this.Delete.Enabled = false;
             this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete.Location = new System.Drawing.Point(30, 336);
+            this.Delete.Location = new System.Drawing.Point(30, 383);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(69, 25);
-            this.Delete.TabIndex = 11;
-            this.Delete.Text = "Delete";
+            this.Delete.TabIndex = 12;
+            this.Delete.Text = "Delete(&d)";
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
@@ -410,11 +425,11 @@
             // Search
             // 
             this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(167, 293);
+            this.Search.Location = new System.Drawing.Point(167, 340);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(69, 25);
-            this.Search.TabIndex = 8;
-            this.Search.Text = "Search";
+            this.Search.TabIndex = 9;
+            this.Search.Text = "Search(&s)";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
@@ -422,7 +437,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 232);
+            this.label5.Location = new System.Drawing.Point(16, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 15);
             this.label5.TabIndex = 13;
@@ -533,7 +548,9 @@
             this.itemCount,
             this.toolStripSeparator4,
             this.toolStripComboBox1,
-            this.toolStripLabel3});
+            this.toolStripLabel3,
+            this.toolStripSeparator6,
+            this.selectedCount});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -699,21 +716,35 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(67, 24);
             this.toolStripLabel3.Text = "Items/Page";
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // selectedCount
+            // 
+            this.selectedCount.Enabled = false;
+            this.selectedCount.Name = "selectedCount";
+            this.selectedCount.Size = new System.Drawing.Size(100, 27);
+            this.selectedCount.Text = "Selected Count";
+            // 
             // Management
             // 
             this.AcceptButton = this.Search;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(946, 612);
+            this.ClientSize = new System.Drawing.Size(946, 661);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.InOrOut);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Management";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Management_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Management_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -782,6 +813,9 @@
         private System.Windows.Forms.TextBox location;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem clearSelectionToolStripMenuItem;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox LPN;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripTextBox selectedCount;
     }
 }

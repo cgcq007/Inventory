@@ -33,17 +33,17 @@ namespace InventoryTest
         {
             if (itemTitile.Text.Length != 0 && dateOfRcv.Text.Length != 0 && orderId.Text.Length != 0 &&  SN.Text.Length != 0)
             {
-                if (!(Regex.IsMatch(Regex.Replace(orderId.Text.Trim().ToString(), "-",""), StrRegex(1))))
-                {
-                    //MessageBox.Show(orderId.Text.Trim().ToString().Split('-')[0].ToString());
-                    MessageBox.Show("Order Number has to be number, alphabet and '-'!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (UPC.Text.Trim().Length != 0 && !(Regex.IsMatch(UPC.Text.Trim().ToString(), StrRegex(3))))
-                {
-                    MessageBox.Show("UPC has to be number!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (!(Regex.IsMatch(Regex.Replace(orderId.Text.Trim().ToString(), "-",""), StrRegex(1))))
+                //{
+                //    //MessageBox.Show(orderId.Text.Trim().ToString().Split('-')[0].ToString());
+                //    MessageBox.Show("Order Number has to be number, alphabet and '-'!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+                //if (UPC.Text.Trim().Length != 0 && !(Regex.IsMatch(UPC.Text.Trim().ToString(), StrRegex(3))))
+                //{
+                //    MessageBox.Show("UPC has to be number!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 //if (!Regex.IsMatch(SN.Text.Trim().ToString(), StrRegex(1)))
                 //{
                 //    MessageBox.Show("SN has to be number or alphabet!", "System", MessageBoxButtons.OK, MessageBoxIcon.Warning);

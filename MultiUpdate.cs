@@ -12,8 +12,8 @@ namespace InventoryTest
 {
     public partial class MultiUpdate : Form
     {
-       public List<string> SN { get; set; }
-       public string uname { get; set; }
+        public List<string> SN { get; set; }
+        public string uname { get; set; }
         public MultiUpdate()
         {
             InitializeComponent();
@@ -26,14 +26,10 @@ namespace InventoryTest
 
         private void SaveAll_Click(object sender, EventArgs e)
         {
-            bool empty = true;
+
             if (itemTitile.Text.Trim().Length > 0 || location.Text.Trim().Length > 0
                             || listed.Text.Trim().Length > 0 || condition.Text.Trim().Length > 0
-                            || note.Text.Trim().Length > 0)
-            {
-                empty = false;
-            }
-            if (empty == false)
+                            || note.Text.Trim().Length > 0 || upc.Text.Trim().Length > 0)
             {
                 foreach (string sn in SN)
                 {
@@ -60,6 +56,9 @@ namespace InventoryTest
                                             break;
                                         case "condition":
                                             it.Condition = ctr.Text.Trim();
+                                            break;
+                                        case "upc":
+                                            it.UPC = ctr.Text.Trim();
                                             break;
                                         case "note":
                                             it.Note = ctr.Text.Trim();

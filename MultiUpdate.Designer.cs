@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SaveAll = new System.Windows.Forms.Button();
             this.Return = new System.Windows.Forms.Button();
+            this.upc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +69,7 @@
             // location
             // 
             this.location.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.location.Location = new System.Drawing.Point(97, 87);
+            this.location.Location = new System.Drawing.Point(97, 84);
             this.location.Margin = new System.Windows.Forms.Padding(2);
             this.location.MaxLength = 32;
             this.location.Name = "location";
@@ -78,7 +80,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(41, 137);
+            this.label10.Location = new System.Drawing.Point(41, 169);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 15);
@@ -94,7 +96,7 @@
             "Not Yet",
             "Amazon",
             "eBay"});
-            this.listed.Location = new System.Drawing.Point(97, 134);
+            this.listed.Location = new System.Drawing.Point(97, 166);
             this.listed.Margin = new System.Windows.Forms.Padding(2);
             this.listed.Name = "listed";
             this.listed.Size = new System.Drawing.Size(226, 23);
@@ -104,7 +106,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(48, 213);
+            this.label5.Location = new System.Drawing.Point(48, 255);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 15);
@@ -115,7 +117,7 @@
             // 
             this.note.AcceptsReturn = true;
             this.note.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.note.Location = new System.Drawing.Point(97, 210);
+            this.note.Location = new System.Drawing.Point(97, 252);
             this.note.Margin = new System.Windows.Forms.Padding(2);
             this.note.MaxLength = 300;
             this.note.Multiline = true;
@@ -138,11 +140,11 @@
             "Acceptable",
             "Refurbished",
             "Defective ServiceMan",
-            "Defective Warrenty",
+            "Defective Warranty",
             "Defective No Warranty",
             "Defective Cannot Repair ",
             "Other..."});
-            this.condition.Location = new System.Drawing.Point(97, 172);
+            this.condition.Location = new System.Drawing.Point(97, 209);
             this.condition.Margin = new System.Windows.Forms.Padding(2);
             this.condition.Name = "condition";
             this.condition.Size = new System.Drawing.Size(226, 23);
@@ -152,7 +154,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 175);
+            this.label9.Location = new System.Drawing.Point(27, 212);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 15);
             this.label9.TabIndex = 41;
@@ -180,7 +182,7 @@
             // SaveAll
             // 
             this.SaveAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveAll.Location = new System.Drawing.Point(97, 323);
+            this.SaveAll.Location = new System.Drawing.Point(97, 361);
             this.SaveAll.Name = "SaveAll";
             this.SaveAll.Size = new System.Drawing.Size(75, 26);
             this.SaveAll.TabIndex = 44;
@@ -190,8 +192,9 @@
             // 
             // Return
             // 
+            this.Return.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Return.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Return.Location = new System.Drawing.Point(248, 323);
+            this.Return.Location = new System.Drawing.Point(248, 361);
             this.Return.Name = "Return";
             this.Return.Size = new System.Drawing.Size(75, 26);
             this.Return.TabIndex = 45;
@@ -199,13 +202,36 @@
             this.Return.UseVisualStyleBackColor = true;
             this.Return.Click += new System.EventHandler(this.Return_Click);
             // 
+            // upc
+            // 
+            this.upc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upc.Location = new System.Drawing.Point(97, 125);
+            this.upc.Margin = new System.Windows.Forms.Padding(2);
+            this.upc.MaxLength = 32;
+            this.upc.Name = "upc";
+            this.upc.Size = new System.Drawing.Size(226, 21);
+            this.upc.TabIndex = 46;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(48, 128);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 15);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "UPC";
+            // 
             // MultiUpdate
             // 
             this.AcceptButton = this.SaveAll;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Return;
-            this.ClientSize = new System.Drawing.Size(384, 361);
+            this.ClientSize = new System.Drawing.Size(384, 411);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.upc);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.SaveAll);
             this.Controls.Add(this.label10);
@@ -242,5 +268,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button SaveAll;
         private System.Windows.Forms.Button Return;
+        private System.Windows.Forms.TextBox upc;
+        private System.Windows.Forms.Label label3;
     }
 }

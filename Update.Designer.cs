@@ -128,7 +128,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 25);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Save";
+            this.button1.Text = "Save(&s)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -155,13 +155,14 @@
             // 
             // SN
             // 
-            this.SN.Enabled = false;
             this.SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SN.Location = new System.Drawing.Point(112, 134);
             this.SN.MaxLength = 32;
             this.SN.Name = "SN";
+            this.SN.ReadOnly = true;
             this.SN.Size = new System.Drawing.Size(226, 21);
             this.SN.TabIndex = 3;
+            this.SN.DoubleClick += new System.EventHandler(this.SN_DoubleClick);
             // 
             // label9
             // 
@@ -187,8 +188,8 @@
             "Acceptable",
             "Refurbished",
             "Defective ServiceMan",
-            "Defective Warrenty",
-            "Defective No Warrenty",
+            "Defective Warranty",
+            "Defective No Warranty",
             "Defective Cannot Repair ",
             "Other..."});
             this.condition.Location = new System.Drawing.Point(112, 358);

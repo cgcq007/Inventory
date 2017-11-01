@@ -12,7 +12,7 @@ namespace InventoryTest
 {
     public partial class Update : Form
     {
-        private string snCode;
+        public string snCode { get; set; }
         private string uname;
         private string utype;
 
@@ -53,32 +53,114 @@ namespace InventoryTest
             {
                 try
                 {
-                    using (var ctx = new ItemContext())
+                    if (SN.ReadOnly)
                     {
-                        Item ite;
-                        if (utype == "serviceMan")
+                        using (var ctx = new ItemContext())
                         {
-                            ite = new Item() { ItemTitle = itemTitile.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(),
-                                  OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, ServiceMan = uname, Condition = condition.Text, Note = Note.Text.Trim() };
-                            ctx.Items.Attach(ite);
-                            ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
-                            ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;
-                            ctx.Entry(ite).Property(y => y.Pending).IsModified = false;
+                            Item ite;
+                            if (utype == "serviceMan")
+                            {
+                                //Item it = ctx.Items.SingleOrDefault(a => a.SN == snCode);
+                                //it.ItemTitle = itemTitile.Text.Trim();
+                                //it.DateOfRcv = Convert.ToDateTime(dateOfRcv.Text);
+                                //it.OrderId = orderId.Text.Trim();
+                                //it.UPC = UPC.Text.Trim();
+                                //it.SN = SN.Text.Trim();
+                                //it.ReturnCode = returnCode.Text.Trim();
+                                //it.Location = location.Text.Trim();
+                                //it.Listed = listed.Text;
+                                //it.ServiceMan = uname;
+                                //it.Condition = condition.Text;
+                                //it.OriginalTrackingNum = originalTrackingNum.Text.Trim();
+                                //it.Note = Note.Text.Trim();
+
+                                //ctx.Items.Attach(it);
+                                //ctx.Entry(it).State = System.Data.Entity.EntityState.Modified;
+
+                                ite = new Item()
+                                {
+                                    ItemTitle = itemTitile.Text.Trim(),
+                                    DateOfRcv = Convert.ToDateTime(dateOfRcv.Text),
+                                    OrderId = orderId.Text.Trim(),
+                                    UPC = UPC.Text.Trim(),
+                                    SN = SN.Text.Trim(),
+                                    OriginalTrackingNum = originalTrackingNum.Text.Trim(),
+                                    ReturnCode = returnCode.Text.Trim(),
+                                    Location = location.Text.Trim(),
+                                    Listed = listed.Text,
+                                    ServiceMan = uname,
+                                    Condition = condition.Text,
+                                    Note = Note.Text.Trim()
+                                };
+                                ctx.Items.Attach(ite);
+                                ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
+                                ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;
+                                ctx.Entry(ite).Property(y => y.Pending).IsModified = false;
+                            }
+                            else
+                            {
+                                ite = new Item()
+                                {
+                                    ItemTitle = itemTitile.Text.Trim(),
+                                    DateOfRcv = Convert.ToDateTime(dateOfRcv.Text),
+                                    OrderId = orderId.Text.Trim(),
+                                    UPC = UPC.Text.Trim(),
+                                    SN = SN.Text.Trim(),
+                                    OriginalTrackingNum = originalTrackingNum.Text.Trim(),
+                                    ReturnCode = returnCode.Text.Trim(),
+                                    Location = location.Text.Trim(),
+                                    Listed = listed.Text,
+                                    Condition = condition.Text,
+                                    Note = Note.Text.Trim()
+                                };
+                                ctx.Items.Attach(ite);
+                                ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
+                                ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;
+                                ctx.Entry(ite).Property(x => x.ServiceMan).IsModified = false;
+                                ctx.Entry(ite).Property(y => y.Pending).IsModified = false;
+                            }
+                            ctx.SaveChanges();
+                            MessageBox.Show("Successfully updated!");
+                            this.Dispose(true);
                         }
-                        else
+
+                    }else
+                    {
+                        try
                         {
-                            ite = new Item() { ItemTitle = itemTitile.Text.Trim(), DateOfRcv = Convert.ToDateTime(dateOfRcv.Text), OrderId = orderId.Text.Trim(), UPC = UPC.Text.Trim(), SN = SN.Text.Trim(),
-                                  OriginalTrackingNum = originalTrackingNum.Text.Trim(), ReturnCode = returnCode.Text.Trim(), Location = location.Text.Trim(), Listed = listed.Text, Condition = condition.Text, Note = Note.Text.Trim() };
-                            ctx.Items.Attach(ite);
-                            ctx.Entry(ite).State = System.Data.Entity.EntityState.Modified;
-                            ctx.Entry(ite).Property(x => x.ItemInOperator).IsModified = false;
-                            ctx.Entry(ite).Property(x => x.ServiceMan).IsModified = false;
-                            ctx.Entry(ite).Property(y => y.Pending).IsModified = false;
+                            using (ItemContext ctx = new ItemContext())
+                            {
+                                Item it = ctx.Items.SingleOrDefault(a => a.SN == snCode);
+                                Item itNew = new Item()
+                                {
+                                    ItemTitle = itemTitile.Text.Trim(),
+                                    OrderId = orderId.Text.Trim(),
+                                    UPC = UPC.Text.Trim(),
+                                    SN = SN.Text.Trim(),
+                                    OriginalTrackingNum = originalTrackingNum.Text.Trim(),
+                                    ReturnCode = returnCode.Text.Trim(),
+                                    Location = location.Text.Trim(),
+                                    DateOfRcv = Convert.ToDateTime(dateOfRcv.Text.ToString()),
+                                    Listed = listed.Text,
+                                    ItemInOperator = it.ItemInOperator,
+                                    Condition = condition.Text,
+                                    Note = Note.Text.Trim(),
+                                    Pending = it.Pending
+                                };
+                                ctx.Items.Remove(it);
+                                ctx.Items.Add(itNew);
+                                ctx.SaveChanges();
+                                MessageBox.Show("Successfully updated!");
+                                snCode = SN.Text;
+                                this.Dispose(true);
+                            }
                         }
-                        ctx.SaveChanges();
-                        MessageBox.Show("Successfully updated!");
-                        this.Dispose(true);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
+                    
 
                 }
                 catch (Exception ex)
@@ -99,6 +181,11 @@ namespace InventoryTest
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose(true);
+        }
+
+        private void SN_DoubleClick(object sender, EventArgs e)
+        {
+            SN.ReadOnly = !SN.ReadOnly;
         }
     }
 
