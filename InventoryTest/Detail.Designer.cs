@@ -41,76 +41,84 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 11);
+            this.label1.Location = new System.Drawing.Point(40, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(110, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Item In Operator";
             // 
             // itemInOperator
             // 
-            this.itemInOperator.Location = new System.Drawing.Point(113, 8);
+            this.itemInOperator.Location = new System.Drawing.Point(151, 10);
+            this.itemInOperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.itemInOperator.Name = "itemInOperator";
             this.itemInOperator.ReadOnly = true;
-            this.itemInOperator.Size = new System.Drawing.Size(160, 20);
+            this.itemInOperator.Size = new System.Drawing.Size(212, 22);
             this.itemInOperator.TabIndex = 1;
             // 
             // serviceMan
             // 
-            this.serviceMan.Location = new System.Drawing.Point(113, 41);
+            this.serviceMan.Location = new System.Drawing.Point(151, 50);
+            this.serviceMan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.serviceMan.Name = "serviceMan";
             this.serviceMan.ReadOnly = true;
-            this.serviceMan.Size = new System.Drawing.Size(160, 20);
+            this.serviceMan.Size = new System.Drawing.Size(212, 22);
             this.serviceMan.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 44);
+            this.label2.Location = new System.Drawing.Point(42, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(103, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Last Updated Man";
+            this.label2.Text = "Updated Users";
             // 
             // itemOutOperator
             // 
-            this.itemOutOperator.Location = new System.Drawing.Point(113, 74);
+            this.itemOutOperator.Location = new System.Drawing.Point(151, 91);
+            this.itemOutOperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.itemOutOperator.Name = "itemOutOperator";
             this.itemOutOperator.ReadOnly = true;
-            this.itemOutOperator.Size = new System.Drawing.Size(160, 20);
+            this.itemOutOperator.Size = new System.Drawing.Size(212, 22);
             this.itemOutOperator.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 77);
+            this.label3.Location = new System.Drawing.Point(29, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.Size = new System.Drawing.Size(122, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Item Out Operator";
             // 
             // returnCode
             // 
-            this.returnCode.Location = new System.Drawing.Point(113, 107);
+            this.returnCode.Location = new System.Drawing.Point(151, 132);
+            this.returnCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.returnCode.Name = "returnCode";
             this.returnCode.ReadOnly = true;
-            this.returnCode.Size = new System.Drawing.Size(160, 20);
+            this.returnCode.Size = new System.Drawing.Size(212, 22);
             this.returnCode.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 110);
+            this.label4.Location = new System.Drawing.Point(57, 135);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Return Code";
             // 
             // Detail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 141);
+            this.ClientSize = new System.Drawing.Size(400, 174);
             this.Controls.Add(this.returnCode);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.itemOutOperator);
@@ -119,6 +127,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.itemInOperator);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Detail";

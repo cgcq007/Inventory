@@ -36,10 +36,10 @@ namespace InventoryTest
                 {
                     using (var ctx = new ItemContext())
                     {
-                        User user = new User() { UserPwd = textBox2.Text.Trim().ToString()};
+                        User user = new User() {UserName = uname, UserPwd = textBox2.Text.Trim().ToString()};
                         ctx.Users.Attach(user);
                         ctx.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                        ctx.Entry(user).Property(x => x.UserPwd).IsModified = true;
+                        ctx.Entry(user).Property(x => x.UserType).IsModified = false;
                         ctx.SaveChanges();
                         MessageBox.Show("Password Successfully Changed!");
                     }

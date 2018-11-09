@@ -13,18 +13,18 @@
     <Setting Name="InventoryManagementConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=tcp:qche.database.windows.net,1433;Initial Catalog=InventoryManagement;Persist Security Info=False;Integrated Security=False;User ID=qche;Password=Cq_19920208;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=tcp:hooray.database.windows.net,1433;Initial Catalog=InventoryManagement;Persist Security Info=False;Integrated Security=False;User ID=hooray;Password=Hoo4081Ray;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=tcp:qche.database.windows.net,1433;Initial Catalog=InventoryManagement;Persist Security Info=False;Integrated Security=False;User ID=qche;Password=Cq_19920208;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+      <Value Profile="(Default)">Data Source=tcp:hooray.database.windows.net,1433;Initial Catalog=InventoryManagement;Persist Security Info=False;Integrated Security=False;User ID=hooray;Password=Hoo4081Ray;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
     </Setting>
     <Setting Name="InventoryManagementConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=qche.database.windows.net;Initial Catalog=InventoryManagement;User ID=qche;Password=Cq_19920208&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=hooray.database.windows.net;Initial Catalog=InventoryManagement;User ID=hooray;Password=Hoo4081Ray;&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=qche.database.windows.net;Initial Catalog=InventoryManagement;User ID=qche;Password=Cq_19920208</Value>
+      <Value Profile="(Default)">Data Source=hooray.database.windows.net;Initial Catalog=InventoryManagement;User ID=hooray;Password=Hoo4081Ray;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

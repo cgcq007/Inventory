@@ -23,9 +23,9 @@ namespace InventoryTest.Migrations
             //
             context.Users.AddOrUpdate(
               u => u.UserName,
-              new User { UserName = "admin", UserPwd = "admin", UserType = "admin" },
-              new User { UserName = "service", UserPwd = "service", UserType = "serviceMan" },
-              new User { UserName = "operator", UserPwd = "operator", UserType = "itemOperator" }
+              new User { UserName = "admin", UserPwd = "admin", UserType = "admin" }
+             // new User { UserName = "service", UserPwd = "service", UserType = "serviceMan" },
+              //new User { UserName = "operator", UserPwd = "operator", UserType = "itemOperator" }
             );
             //
         }

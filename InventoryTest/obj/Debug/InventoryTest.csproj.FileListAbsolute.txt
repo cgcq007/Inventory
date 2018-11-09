@@ -26,3 +26,14 @@ C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\Invento
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\bin\Debug\NPOI.OpenXmlFormats.dll
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\bin\Debug\NPOI.xml
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.Detail.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.MultiUpdate.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.OutboundManagement.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.OutboundItemAdd.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.OutboundModify.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryTest\InventoryTest\obj\Debug\InventoryTest.Recycle_Bin.resources
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\InventoryTest\bin\Debug\InventoryTest.exe.config
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\InventoryTest\obj\Debug\InventoryTest.exe
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\InventoryTest\obj\Debug\InventoryTest.pdb
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\bin\Debug\InventoryTest.exe.config
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\obj\Debug\InventoryTest.exe
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\obj\Debug\InventoryTest.pdb

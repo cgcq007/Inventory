@@ -54,20 +54,20 @@ namespace InventoryTest
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pwd p = new Pwd(uname);
-            p.Show();
+            p.ShowDialog();
         }
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserManagement um = new UserManagement();
-            um.Show();
+            um.ShowDialog();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
             Login lg = new Login();
-            lg.Show();
+            lg.ShowDialog();
 
         }
 
@@ -91,7 +91,19 @@ namespace InventoryTest
         private void backLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RecentDeletion recentDeletion = new RecentDeletion();
-            recentDeletion.Show();
+            recentDeletion.ShowDialog();
+        }
+
+        private void managementToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OutboundManagement obm = new OutboundManagement(uname, utype);
+            obm.Show();
+        }
+
+        private void recycleBinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Recycle_Bin recycle = new Recycle_Bin();
+            recycle.Show();
         }
     }
 }
