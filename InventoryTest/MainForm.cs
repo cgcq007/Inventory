@@ -105,5 +105,17 @@ namespace InventoryTest
             Recycle_Bin recycle = new Recycle_Bin();
             recycle.Show();
         }
+
+        private void managementToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            InboundManagement ibm = new InboundManagement(uname, utype);
+            ibm.Show();
+        }
+
+        private void recycleBinToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RecycleBinInbound recycle = new RecycleBinInbound();
+            recycle.Show();
+        }
     }
 }

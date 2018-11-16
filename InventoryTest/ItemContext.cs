@@ -24,6 +24,8 @@ namespace InventoryTest
         public DbSet<ItemBak> ItemBaks { get; set; }
 
         public DbSet<ItemOutbound> ItemOutbounds { get; set; }
+
+        public DbSet<ItemInbound> ItemInbounds { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //modelBuilder.Conventions.Remove<ItemBak>();

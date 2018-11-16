@@ -42,5 +42,16 @@ namespace InventoryTest
                 }
             }
         }
+        public void returnCurrentInboundRow(string currentRowId, DataGridView dataGridView)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells["ItemInboundId"].Value.ToString() == currentRowId)
+                {
+                    dataGridView.FirstDisplayedScrollingRowIndex = row.Index;
+                    row.Selected = true;
+                }
+            }
+        }
     }
 }
