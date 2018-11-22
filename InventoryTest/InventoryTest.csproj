@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -98,35 +98,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmForm.cs">
+    <Compile Include="ItemManagement\ConfirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmForm.Designer.cs">
+    <Compile Include="ItemManagement\ConfirmForm.Designer.cs">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Detail.cs">
+    <Compile Include="User\Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Detail.Designer.cs">
+    <Compile Include="User\Detail.Designer.cs">
       <DependentUpon>Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="DLTool.cs" />
-    <Compile Include="InboundItemAdd.cs">
+    <Compile Include="Tools\DLTool.cs" />
+    <Compile Include="Inbound\InboundItemAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InboundItemAdd.designer.cs">
+    <Compile Include="Inbound\InboundItemAdd.designer.cs">
       <DependentUpon>InboundItemAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="InboundManagement.cs">
+    <Compile Include="Inbound\InboundManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InboundManagement.designer.cs">
+    <Compile Include="Inbound\InboundManagement.designer.cs">
       <DependentUpon>InboundManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="InboundModify.cs">
+    <Compile Include="Inbound\InboundModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InboundModify.designer.cs">
+    <Compile Include="Inbound\InboundModify.designer.cs">
       <DependentUpon>InboundModify.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagementDataSet11.Designer.cs">
@@ -139,23 +139,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryManagementDataSet6.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ItemBak.cs" />
-    <Compile Include="ItemDisposed.cs" />
-    <Compile Include="Item In.cs">
+    <Compile Include="AppCode\ItemBak.cs" />
+    <Compile Include="AppCode\ItemDisposed.cs" />
+    <Compile Include="ItemManagement\Item In.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Item In.Designer.cs">
+    <Compile Include="ItemManagement\Item In.Designer.cs">
       <DependentUpon>Item In.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemContext.cs" />
+    <Compile Include="AppCode\Item.cs" />
+    <Compile Include="AppCode\ItemContext.cs" />
     <Compile Include="itemInboudsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>itemInboudsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ItemInbound.cs" />
-    <Compile Include="ItemOutbound.cs" />
+    <Compile Include="AppCode\ItemInbound.cs" />
+    <Compile Include="AppCode\ItemOutbound.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,94 +168,94 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management.cs">
+    <Compile Include="ItemManagement\Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management.Designer.cs">
+    <Compile Include="ItemManagement\Management.Designer.cs">
       <DependentUpon>Management.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MultiUpdate.cs">
+    <Compile Include="ItemManagement\MultiUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MultiUpdate.Designer.cs">
+    <Compile Include="ItemManagement\MultiUpdate.Designer.cs">
       <DependentUpon>MultiUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutboundItemAdd.cs">
+    <Compile Include="Outbound\OutboundItemAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OutboundItemAdd.Designer.cs">
+    <Compile Include="Outbound\OutboundItemAdd.Designer.cs">
       <DependentUpon>OutboundItemAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutboundManagement.cs">
+    <Compile Include="Outbound\OutboundManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OutboundManagement.Designer.cs">
+    <Compile Include="Outbound\OutboundManagement.Designer.cs">
       <DependentUpon>OutboundManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutboundModify.cs">
+    <Compile Include="Outbound\OutboundModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OutboundModify.Designer.cs">
+    <Compile Include="Outbound\OutboundModify.Designer.cs">
       <DependentUpon>OutboundModify.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pwd.cs">
+    <Compile Include="User\Pwd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pwd.Designer.cs">
+    <Compile Include="User\Pwd.Designer.cs">
       <DependentUpon>Pwd.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecentDeletion.cs">
+    <Compile Include="ItemManagement\RecentDeletion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecentDeletion.Designer.cs">
+    <Compile Include="ItemManagement\RecentDeletion.Designer.cs">
       <DependentUpon>RecentDeletion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recycle Bin.cs">
+    <Compile Include="Outbound\Recycle Bin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recycle Bin.Designer.cs">
+    <Compile Include="Outbound\Recycle Bin.Designer.cs">
       <DependentUpon>Recycle Bin.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecycleBinInbound.cs">
+    <Compile Include="Inbound\RecycleBinInbound.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecycleBinInbound.designer.cs">
+    <Compile Include="Inbound\RecycleBinInbound.designer.cs">
       <DependentUpon>RecycleBinInbound.cs</DependentUpon>
     </Compile>
-    <Compile Include="SetPositionTool.cs" />
-    <Compile Include="Update.cs">
+    <Compile Include="Tools\SetPositionTool.cs" />
+    <Compile Include="ItemManagement\Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update.Designer.cs">
+    <Compile Include="ItemManagement\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="UserManagement.cs">
+    <Compile Include="AppCode\User.cs" />
+    <Compile Include="User\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserManagement.Designer.cs">
+    <Compile Include="User\UserManagement.Designer.cs">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExcelTool.cs" />
-    <EmbeddedResource Include="ConfirmForm.resx">
+    <Compile Include="Tools\ExcelTool.cs" />
+    <EmbeddedResource Include="ItemManagement\ConfirmForm.resx">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Detail.resx">
+    <EmbeddedResource Include="User\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InboundItemAdd.resx">
+    <EmbeddedResource Include="Inbound\InboundItemAdd.resx">
       <DependentUpon>InboundItemAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InboundManagement.resx">
+    <EmbeddedResource Include="Inbound\InboundManagement.resx">
       <DependentUpon>InboundManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InboundModify.resx">
+    <EmbeddedResource Include="Inbound\InboundModify.resx">
       <DependentUpon>InboundModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Item In.resx">
+    <EmbeddedResource Include="ItemManagement\Item In.resx">
       <DependentUpon>Item In.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -264,19 +264,19 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management.resx">
+    <EmbeddedResource Include="ItemManagement\Management.resx">
       <DependentUpon>Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MultiUpdate.resx">
+    <EmbeddedResource Include="ItemManagement\MultiUpdate.resx">
       <DependentUpon>MultiUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OutboundItemAdd.resx">
+    <EmbeddedResource Include="Outbound\OutboundItemAdd.resx">
       <DependentUpon>OutboundItemAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OutboundManagement.resx">
+    <EmbeddedResource Include="Outbound\OutboundManagement.resx">
       <DependentUpon>OutboundManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OutboundModify.resx">
+    <EmbeddedResource Include="Outbound\OutboundModify.resx">
       <DependentUpon>OutboundModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -288,22 +288,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Pwd.resx">
+    <EmbeddedResource Include="User\Pwd.resx">
       <DependentUpon>Pwd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecentDeletion.resx">
+    <EmbeddedResource Include="ItemManagement\RecentDeletion.resx">
       <DependentUpon>RecentDeletion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recycle Bin.resx">
+    <EmbeddedResource Include="Outbound\Recycle Bin.resx">
       <DependentUpon>Recycle Bin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecycleBinInbound.resx">
+    <EmbeddedResource Include="Inbound\RecycleBinInbound.resx">
       <DependentUpon>RecycleBinInbound.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update.resx">
+    <EmbeddedResource Include="ItemManagement\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserManagement.resx">
+    <EmbeddedResource Include="User\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="InventoryManagementDataSet11.xsc">
@@ -370,6 +370,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
