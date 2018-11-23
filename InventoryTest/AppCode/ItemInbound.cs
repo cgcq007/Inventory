@@ -23,6 +23,8 @@ namespace InventoryTest
 
         public String Manipulator { get; set; }
 
+        public String ShipperId { get; set; }
+
         public int Qty { get; set; }
 
         public DateTime Date { get; set; }

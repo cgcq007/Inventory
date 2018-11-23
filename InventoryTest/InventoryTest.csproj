@@ -98,6 +98,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="itemInboudsDataSet.cs">
+      <DependentUpon>itemInboudsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ItemManagement\ConfirmForm.cs">
       <SubType>Form</SubType>
     </Compile>

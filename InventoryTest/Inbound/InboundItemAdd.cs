@@ -27,6 +27,7 @@ namespace InventoryTest
             Qty.Text = Convert.ToString(numLines);
         }
 
+        #region Add
         private void button1_Click(object sender, EventArgs e)
         {
             if (itemTitile.Text.Trim().Length != 0 && TrackingNum.Text.Trim().Length != 0 && UPC.Text.Trim().Length != 0)
@@ -35,7 +36,7 @@ namespace InventoryTest
                 {
                     using (var ctx = new ItemContext())
                     {
-                        ItemInbound II = new ItemInbound() { ItemTitle = itemTitile.Text.Trim(), TrackingNum = TrackingNum.Text.Trim(), Date = Convert.ToDateTime(date.Text.ToString()), Qty = Convert.ToInt32(Qty.Text), Manipulator = manipulator, UPC = UPC.Text.Trim(), isDelete = false };
+                        ItemInbound II = new ItemInbound() { ItemTitle = itemTitile.Text.Trim(), TrackingNum = TrackingNum.Text.Trim(), Date = Convert.ToDateTime(date.Text.ToString()), Qty = Convert.ToInt32(Qty.Text), Manipulator = manipulator, UPC = UPC.Text.Trim(), ShipperId = tbShipperID.Text.Trim(), isDelete = false };
                         ctx.ItemInbounds.Add(II);
                         ctx.SaveChanges();
                     }
@@ -54,6 +55,8 @@ namespace InventoryTest
                 MessageBox.Show("itemTitile, TrackingNum, UPC cannot be null.");
             }
         }
+
+        #endregion
 
         private void button2_Click(object sender, EventArgs e)
         {

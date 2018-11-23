@@ -33,7 +33,8 @@ namespace InventoryTest
                     itemTitile.Text = itemInbound.ItemTitle;
                     date.Text = itemInbound.Date.ToString();
                     Qty.Text = itemInbound.Qty.ToString();
-                    UPC.Text = itemInbound.UPC;
+                    UPC.Text = itemInbound.UPC; ;
+                    tbShipperID.Text = itemInbound.ShipperId.ToString();
                 }
             }
             catch (Exception ex)
@@ -56,6 +57,7 @@ namespace InventoryTest
                         itemInbound.Qty = Convert.ToInt32(Qty.Text);
                         itemInbound.UPC = UPC.Text;
                         itemInbound.TrackingNum = TrackingNumLabel.Text;
+                        itemInbound.ShipperId = tbShipperID.Text;
                         ctx.Entry(itemInbound).State = System.Data.Entity.EntityState.Modified;
                         ctx.SaveChanges();
                         MessageBox.Show("Successfully updated!");

@@ -50,7 +50,6 @@ namespace InventoryTest
 
         private void InboundManagement_Load(object sender, EventArgs e)
         {
-
             ReLoadData();
             SetAuthority(utype);
         }
@@ -60,11 +59,9 @@ namespace InventoryTest
 
             using (ItemContext ctx = new ItemContext())
             {
-                var itemInbounds = ctx.ItemInbounds.Where(x => x.isDelete == false).Select(x => new { x.ItemInboundId, x.TrackingNum, x.ItemTitle, x.Qty, x.UPC, x.Manipulator, x.Date }).OrderByDescending(order => order.Date).ToList();
+                var itemInbounds = ctx.ItemInbounds.Where(x => x.isDelete == false).Select(x => new { x.ItemInboundId, x.TrackingNum, x.ItemTitle, x.Qty, x.UPC, x.Manipulator,  x.ShipperId, x.Date }).OrderByDescending(order => order.Date).ToList();
                 dtInfo = ToDataSet(itemInbounds);
             }
-
-
             InitDataSet();
         }
 
@@ -176,6 +173,7 @@ namespace InventoryTest
             this.dataGridView1.Columns["UPC"].FillWeight = 150;
             //this.dataGridView1.Columns["UPC"].CellTemplate.Style.WrapMode = DataGridViewTriState.True;
             this.dataGridView1.Columns["Manipulator"].FillWeight = 30;
+            this.dataGridView1.Columns["ShipperID"].FillWeight = 30;
 
             /*FillWeights
              * 
@@ -490,6 +488,7 @@ namespace InventoryTest
                         x.UPC,
                         x.Date,
                         x.Manipulator,
+                        x.ShipperId,
                         x.Qty
                     }).ToList();
                     DataTable dt = ToDataSet(ib);
@@ -540,8 +539,11 @@ namespace InventoryTest
             {
                 this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;//将当前单元格设为可读
                 this.dataGridView1.CurrentCell = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];//获取当前单元格
-                this.dataGridView1.BeginEdit(true);//将单元格设为编辑状态
-                Clipboard.SetText(dataGridView1.CurrentCell.Value == null ? "" : dataGridView1.CurrentCell.Value.ToString());
+                if (dataGridView1.CurrentCell.Value.ToString() != "")
+                {
+                    this.dataGridView1.BeginEdit(true);//将单元格设为编辑状态
+                    Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
+                }
             }
 
         }

@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemInboundsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemInboudsDataSet = new InventoryTest.itemInboudsDataSet();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,24 +43,23 @@
             this.inventoryManagementDataSet = new InventoryTest.InventoryManagementDataSet();
             this.inventoryManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemOutboundsTableAdapter = new InventoryTest.InventoryManagementDataSet1TableAdapters.ItemOutboundsTableAdapter();
-            this.itemInboundsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemInboudsDataSet = new InventoryTest.itemInboudsDataSet();
             this.itemInboundsTableAdapter = new InventoryTest.itemInboudsDataSetTableAdapters.ItemInboundsTableAdapter();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShipperId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemInboundsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemInboudsDataSet)).BeginInit();
             this.fillBy1ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemOutboundsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemInboundsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemInboudsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -79,6 +80,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
+            this.ShipperId,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
             this.dataGridView1.DataSource = this.itemInboundsBindingSource;
@@ -100,6 +102,16 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(901, 862);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // itemInboundsBindingSource
+            // 
+            this.itemInboundsBindingSource.DataMember = "ItemInbounds";
+            this.itemInboundsBindingSource.DataSource = this.itemInboudsDataSet;
+            // 
+            // itemInboudsDataSet
+            // 
+            this.itemInboudsDataSet.DataSetName = "itemInboudsDataSet";
+            this.itemInboudsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fillBy1ToolStrip
             // 
@@ -169,16 +181,6 @@
             // 
             this.itemOutboundsTableAdapter.ClearBeforeFill = true;
             // 
-            // itemInboundsBindingSource
-            // 
-            this.itemInboundsBindingSource.DataMember = "ItemInbounds";
-            this.itemInboundsBindingSource.DataSource = this.itemInboudsDataSet;
-            // 
-            // itemInboudsDataSet
-            // 
-            this.itemInboudsDataSet.DataSetName = "itemInboudsDataSet";
-            this.itemInboudsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // itemInboundsTableAdapter
             // 
             this.itemInboundsTableAdapter.ClearBeforeFill = true;
@@ -218,6 +220,13 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
+            // ShipperId
+            // 
+            this.ShipperId.DataPropertyName = "ShipperId";
+            this.ShipperId.HeaderText = "ShipperId";
+            this.ShipperId.Name = "ShipperId";
+            this.ShipperId.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "Qty";
@@ -246,14 +255,14 @@
             this.Text = "RecycleBinInbound";
             this.Load += new System.EventHandler(this.Recycle_Bin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemInboundsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemInboudsDataSet)).EndInit();
             this.fillBy1ToolStrip.ResumeLayout(false);
             this.fillBy1ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemOutboundsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryManagementDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemInboundsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemInboudsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +301,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ShipperId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
     }
