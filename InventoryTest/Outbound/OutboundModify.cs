@@ -59,7 +59,7 @@ namespace InventoryTest
                             Date = Convert.ToDateTime(date.Text),
                             Qty = Convert.ToInt32(Qty.Text),
                             SN = SN.Text,
-                            TrackingNum = TrackingNumLabel.Text
+                            TrackingNum = TrackingNum.Text
                         };
                         ctx.ItemOutbounds.Attach(itemOutboundNew);
                         ctx.Entry(itemOutboundNew).State = System.Data.Entity.EntityState.Modified;

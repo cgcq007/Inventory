@@ -71,3 +71,7 @@ C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\I
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\bin\Debug\InventoryManagementCA.exe.config
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\bin\Debug\InventoryManagementCA.exe
 C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\obj\Debug\InventoryManagementCA.exe
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\bin\Debug\InventoryManagementCA.exe.manifest
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\bin\Debug\InventoryManagementCA.application
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\obj\Debug\InventoryManagementCA.exe.manifest
+C:\Users\cgcq0\OneDrive\文档\Visual Studio 2015\Projects\InventoryManagement\Inventory\InventoryTest\obj\Debug\InventoryManagementCA.application

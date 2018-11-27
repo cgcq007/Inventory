@@ -166,6 +166,7 @@ namespace InventoryTest
             this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridView1.Columns["ItemTitle"].FillWeight = 150;
             this.dataGridView1.Columns["ItemInboundId"].FillWeight = 30;
+            this.dataGridView1.Columns["ItemInboundId"].Visible = false;
             this.dataGridView1.Columns["Date"].FillWeight = 50;
             this.dataGridView1.Columns["TrackingNum"].FillWeight = 100;
             this.dataGridView1.Columns["Selected"].FillWeight = 30;
@@ -384,7 +385,7 @@ namespace InventoryTest
             {
                 using (ItemContext ctx = new ItemContext())
                 {
-                    var res = ctx.ItemInbounds.Where(x => x.isDelete == false).Select(x => new { x.ItemInboundId, x.TrackingNum, x.ItemTitle, x.Qty, x.UPC, x.Manipulator, x.Date }).OrderByDescending(order => order.Date).Where(a => true);
+                    var res = ctx.ItemInbounds.Where(x => x.isDelete == false).Select(x => new { x.ItemInboundId, x.TrackingNum, x.ItemTitle, x.Qty, x.UPC, x.Manipulator, x.ShipperId, x.Date }).OrderByDescending(order => order.Date).Where(a => true);
                     if (ItemTitle.Text.Trim().Length != 0)
                     {
                         res = res.Where(title => title.ItemTitle.Contains(ItemTitle.Text.Trim()));
