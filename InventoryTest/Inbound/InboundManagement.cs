@@ -464,20 +464,6 @@ namespace InventoryTest
 
         private void SaveToLocal_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog path = new FolderBrowserDialog();
-            path.Description = "Pleas Choose a Path:";
-            string file;
-
-            if (path.ShowDialog() == DialogResult.OK)
-            {
-                //file = path.SafeFileName;
-                file = path.SelectedPath;
-            }
-            else
-            {
-                return;
-            }
-
             using (ItemContext ctx = new ItemContext())
             {
                 try
@@ -493,8 +479,9 @@ namespace InventoryTest
                         x.Qty
                     }).ToList();
                     DataTable dt = ToDataSet(ib);
-                    ExcelTool et = new ExcelTool(dt, file);
-                    MessageBox.Show(et.writeToExcel());
+                    ExcelTool et = new ExcelTool();
+                    if (!et.initSavePath()) return;
+                    else MessageBox.Show(et.writeToExcel(dt));
 
                 }
                 catch (Exception ex)

@@ -3,21 +3,49 @@ using System.IO;
 using System.Data;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using System.Windows.Forms;
 
 namespace InventoryTest
 {
     class ExcelTool
     {
-        private DataTable dt;
         private string path;
-        public ExcelTool(DataTable dt, string path)
+        public ExcelTool()
         {
-            this.dt = dt;
-            this.path = path;
+            
         }
-   
-        public string writeToExcel()
-        {
+
+        public bool initSavePath() {
+            SaveFileDialog sfd = new SaveFileDialog();
+            //path.Description = "Please Choose a Path:";
+           
+
+            //设置文件类型 
+            sfd.Filter = "Excel文件（*.xls）|";
+
+            //设置默认文件类型显示顺序 
+            sfd.FilterIndex = 1;
+
+            //保存对话框是否记忆上次打开的目录 
+            sfd.RestoreDirectory = true;
+
+            //设置默认的文件名
+            sfd.FileName = "BackLog";
+            sfd.DefaultExt = ".xls";// in wpf is  sfd.FileName = "YourFileName";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                //file = path.SafeFileName;
+                path = sfd.FileName.ToString();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public string writeToExcel(DataTable dt)
+        {  
             try
             {
                 HSSFWorkbook workbook = new HSSFWorkbook();
@@ -50,7 +78,7 @@ namespace InventoryTest
                         }
                     }
                 }
-                using (FileStream file = new FileStream(path+"\\BakLog.xls", FileMode.Create, FileAccess.Write))
+                using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
                 {
                     workbook.Write(file);
                     file.Close();

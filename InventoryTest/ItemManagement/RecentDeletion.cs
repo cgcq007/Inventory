@@ -87,20 +87,20 @@ namespace InventoryTest
             //path.Filter = "Excel Document(*.xls)|*.xls";
             //path.Multiselect = false;
 
-            FolderBrowserDialog path = new FolderBrowserDialog();
-            path.Description = "Pleas Choose a Path:";
-            string file;
+            //FolderBrowserDialog path = new FolderBrowserDialog();
+            //path.Description = "Pleas Choose a Path:";
+            //string file;
             DateTime time1 = Convert.ToDateTime(dateTimePicker1.Text);
 
-            if (path.ShowDialog() == DialogResult.OK)
-            {
-                //file = path.SafeFileName;
-                file = path.SelectedPath;
-            }
-            else
-            {
-                return;
-            }
+            //if (path.ShowDialog() == DialogResult.OK)
+            //{
+            //    //file = path.SafeFileName;
+            //    file = path.SelectedPath;
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
             using (ItemContext ctx = new ItemContext())
             {
@@ -111,8 +111,9 @@ namespace InventoryTest
                         x.Listed, x.ReturnCode,x.OutTrackingNumber,x.ItemOutOperator })
                         .Where(a => a.DateOfOut.CompareTo(time1) < 0).ToList();
                     DataTable dt = ToDataSet(ib);
-                    ExcelTool et = new ExcelTool(dt, file);
-                    MessageBox.Show(et.writeToExcel());
+                    ExcelTool et = new ExcelTool();
+                    if (!et.initSavePath()) return;
+                    else MessageBox.Show(et.writeToExcel(dt));
 
                 }
                 catch (Exception ex)
