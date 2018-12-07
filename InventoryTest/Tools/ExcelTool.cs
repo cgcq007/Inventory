@@ -21,7 +21,7 @@ namespace InventoryTest
            
 
             //设置文件类型 
-            sfd.Filter = "Excel文件（*.xls）|";
+            sfd.Filter = "Excel Document(*.xls)|*.xls";
 
             //设置默认文件类型显示顺序 
             sfd.FilterIndex = 1;
@@ -58,6 +58,8 @@ namespace InventoryTest
                 {
                     dataRow.CreateCell(column.Ordinal).SetCellValue(column.ColumnName);
                 }
+                ICellStyle cs = workbook.CreateCellStyle();
+                cs.WrapText = true;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     //first line uses Create
@@ -71,8 +73,7 @@ namespace InventoryTest
                         //cover /n
                         if (dt.Rows[i][j].ToString().Contains("\n"))
                         {
-                            ICellStyle cs = workbook.CreateCellStyle();
-                            cs.WrapText = true;
+
                             dataRow.GetCell(j).CellStyle = cs;
                             //dataRow.HeightInPoints = 2 * sheet.DefaultRowHeight / 20;
                         }
