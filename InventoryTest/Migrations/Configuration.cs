@@ -10,7 +10,7 @@ namespace InventoryTest.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = false;
             ContextKey = "InventoryTest.ItemContext";
         }
 
