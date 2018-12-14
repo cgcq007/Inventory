@@ -22,9 +22,7 @@ namespace InventoryTest
 
         private void UPC_TextChanged(object sender, EventArgs e)
         {
-            long numLines = UPC.Text.Split('\n').Where(x => x.Trim().Length != 0).LongCount();
 
-            Qty.Text = Convert.ToString(numLines);
         }
 
         #region Add

@@ -87,7 +87,6 @@
             this.UPC.Size = new System.Drawing.Size(337, 132);
             this.UPC.TabIndex = 39;
             this.UPC.Tag = "fashdufhas";
-            this.UPC.TextChanged += new System.EventHandler(this.UPC_TextChanged);
             // 
             // date
             // 

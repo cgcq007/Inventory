@@ -297,7 +297,7 @@ namespace InventoryTest
             ItemTitle.Text = "";
             InBoundDate.Text = "";
             UPC.Text = "";
-            Manipulator.Text = "";
+            ShipperID.Text = "";
             TrackingNum.Text = "";
             InBoundDate.Checked = false;
             //items/page
@@ -365,7 +365,7 @@ namespace InventoryTest
             {
                 del = false;
                 if (ItemTitle.Text.Length != 0 || UPC.Text.Length != 0 ||
-                    InBoundDate.Checked || Manipulator.Text.Length != 0
+                    InBoundDate.Checked || ShipperID.Text.Length != 0
                      || TrackingNum.Text.Trim().Length != 0)
                 {
                     Search_Click(this, e);
@@ -390,9 +390,9 @@ namespace InventoryTest
                     {
                         res = res.Where(title => title.ItemTitle.Contains(ItemTitle.Text.Trim()));
                     }
-                    if (Manipulator.Text.Trim().Length != 0)
+                    if (ShipperID.Text.Trim().Length != 0)
                     {
-                        res = res.Where(m => m.Manipulator == Manipulator.Text.Trim());
+                        res = res.Where(m => m.ShipperId == ShipperID.Text.Trim());
                     }
                     if (UPC.Text.Trim().Length != 0)
                     {
@@ -427,7 +427,7 @@ namespace InventoryTest
                     InboundModify modified = new InboundModify(Convert.ToInt32(idxUpdate));
                     modified.ShowDialog();
                 }
-                if (ItemTitle.Text.Length != 0 || UPC.Text.Length != 0 || Manipulator.Text.Length != 0 ||
+                if (ItemTitle.Text.Length != 0 || UPC.Text.Length != 0 || ShipperID.Text.Length != 0 ||
                     InBoundDate.Checked || TrackingNum.Text.Trim().Length != 0)
                 {
                     Search_Click(this, e);

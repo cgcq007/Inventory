@@ -41,7 +41,7 @@
             this.SaveToLocal = new System.Windows.Forms.Button();
             this.InBoundDate = new System.Windows.Forms.DateTimePicker();
             this.Modify = new System.Windows.Forms.Button();
-            this.Manipulator = new System.Windows.Forms.TextBox();
+            this.ShipperID = new System.Windows.Forms.TextBox();
             this.Add = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
@@ -126,7 +126,7 @@
             this.groupBox1.Controls.Add(this.SaveToLocal);
             this.groupBox1.Controls.Add(this.InBoundDate);
             this.groupBox1.Controls.Add(this.Modify);
-            this.groupBox1.Controls.Add(this.Manipulator);
+            this.groupBox1.Controls.Add(this.ShipperID);
             this.groupBox1.Controls.Add(this.Add);
             this.groupBox1.Controls.Add(this.Clear);
             this.groupBox1.Controls.Add(this.Delete);
@@ -235,14 +235,14 @@
             this.Modify.UseVisualStyleBackColor = true;
             this.Modify.Click += new System.EventHandler(this.Modify_Click);
             // 
-            // Manipulator
+            // ShipperID
             // 
-            this.Manipulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Manipulator.Location = new System.Drawing.Point(111, 89);
-            this.Manipulator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Manipulator.Name = "Manipulator";
-            this.Manipulator.Size = new System.Drawing.Size(152, 28);
-            this.Manipulator.TabIndex = 1;
+            this.ShipperID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipperID.Location = new System.Drawing.Point(111, 89);
+            this.ShipperID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ShipperID.Name = "ShipperID";
+            this.ShipperID.Size = new System.Drawing.Size(152, 28);
+            this.ShipperID.TabIndex = 1;
             // 
             // Add
             // 
@@ -316,9 +316,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(9, 92);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 22);
+            this.label6.Size = new System.Drawing.Size(89, 22);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Manipulator";
+            this.label6.Text = "ShipperID";
             // 
             // label3
             // 
@@ -593,7 +593,7 @@
         private System.Windows.Forms.Button SaveToLocal;
         private System.Windows.Forms.DateTimePicker InBoundDate;
         private System.Windows.Forms.Button Modify;
-        private System.Windows.Forms.TextBox Manipulator;
+        private System.Windows.Forms.TextBox ShipperID;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button Delete;
