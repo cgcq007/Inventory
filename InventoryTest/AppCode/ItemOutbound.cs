@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InventoryTest
 {
@@ -18,7 +18,7 @@ namespace InventoryTest
         
         public String SN { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(255), Index("IX_IOTRACKNUM", IsClustered = false)]
         public String TrackingNum { get; set; }
 
         public String Manipulator { get; set; }
