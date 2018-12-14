@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,16 @@ namespace InventoryTest
                 {
                     using (var ctx = new ItemContext())
                     {
+                        DateTime timeLimit = DateTime.Now.AddDays(-3);
+                        var itemExist = ctx.ItemOutbounds.Where(x => x.TrackingNum == TrackingNum.Text.Trim()).Where(time => DateTime.Compare(time.Date, timeLimit) > 0).ToList();
+                        if (itemExist.Count > 0)
+                        {
+                            if (MessageBox.Show("The tracking number has been used in recent 3 days.", "Do you want to continue?", MessageBoxButtons.YesNo) == DialogResult.Yes) { }
+                            else
+                            {
+                                return;
+                            }
+                        }
                         ItemOutbound IO = new ItemOutbound() { ItemTitle = itemTitile.Text.Trim(), TrackingNum = TrackingNum.Text.Trim(), Date = Convert.ToDateTime(date.Text.ToString()), Qty = Convert.ToInt32(Qty.Text), Manipulator = manipulator, SN = SN.Text.Trim(), isDelete = false };
                         ctx.ItemOutbounds.Add(IO);
                         ctx.SaveChanges();

@@ -52,21 +52,15 @@ namespace InventoryTest
 
                     using (var ctx = new ItemContext())
                     {
-                        ItemOutbound itemOutboundNew = new ItemOutbound()
-                        {
-                            ItemOutboundId = itemOutboundId,
-                            ItemTitle = itemTitile.Text,
-                            Date = Convert.ToDateTime(date.Text),
-                            Qty = Convert.ToInt32(Qty.Text),
-                            SN = SN.Text,
-                            TrackingNum = TrackingNum.Text
-                        };
-                        ctx.ItemOutbounds.Attach(itemOutboundNew);
-                        ctx.Entry(itemOutboundNew).State = System.Data.Entity.EntityState.Modified;
-                        ctx.Entry(itemOutboundNew).Property(x => x.ItemOutboundId).IsModified = false;
-                        ctx.Entry(itemOutboundNew).Property(x => x.isDelete).IsModified = false;
-                        ctx.Entry(itemOutboundNew).Property(x => x.Manipulator).IsModified = false;
+                        ItemOutbound itemOutbound = ctx.ItemOutbounds.Where(u => u.ItemOutboundId == itemOutboundId).FirstOrDefault();
+                        itemOutbound.ItemTitle = itemTitile.Text;
+                        itemOutbound.Date = Convert.ToDateTime(date.Text);
+                        itemOutbound.Qty = Convert.ToInt32(Qty.Text);
+                        itemOutbound.SN = SN.Text;
+                        itemOutbound.TrackingNum = TrackingNum.Text;
+                        ctx.Entry(itemOutbound).State = System.Data.Entity.EntityState.Modified;
                         ctx.SaveChanges();
+                        MessageBox.Show("Successfully updated!");
                     }
                 }
                 catch (Exception ex)
