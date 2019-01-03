@@ -132,7 +132,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(134, 822);
+            this.button1.Location = new System.Drawing.Point(132, 751);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 39);
@@ -144,7 +144,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(402, 822);
+            this.button2.Location = new System.Drawing.Point(400, 751);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 39);
@@ -233,7 +233,7 @@
             this.Note.MaxLength = 300;
             this.Note.Multiline = true;
             this.Note.Name = "Note";
-            this.Note.Size = new System.Drawing.Size(337, 132);
+            this.Note.Size = new System.Drawing.Size(337, 87);
             this.Note.TabIndex = 11;
             this.Note.Tag = "fashdufhas";
             // 
@@ -348,7 +348,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 941);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(642, 832);
             this.Controls.Add(this.noSNCheckBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
