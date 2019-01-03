@@ -392,7 +392,7 @@ namespace InventoryTest
                     }
                     if (ShipperID.Text.Trim().Length != 0)
                     {
-                        res = res.Where(m => m.ShipperId == ShipperID.Text.Trim());
+                        res = res.Where(m => m.ShipperId.Contains(ShipperID.Text.Trim()));
                     }
                     if (UPC.Text.Trim().Length != 0)
                     {
